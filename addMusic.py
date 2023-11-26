@@ -34,3 +34,4 @@ new_music = {'style': style_music, 'type': type_music, 'title': title_music, 'so
 
 tableMusic = tableMusic.append(new_music, ignore_index=True)
 print(tableMusic)
+print("teste")
