@@ -24,7 +24,7 @@ artist_music = artist_music.title()
 rating_global_music = int(input("What's the global rating of the song? "))	
 rating_user_music = int(input("What's your rating of the song? "))	
 
-duration_music = input("how long is the song? ")
+duration_music = input("What's the duration of the song? ")
 duration_music = duration_music.split(":")
 minutes = int(duration_music[0])
 seconds = int(duration_music[1])
