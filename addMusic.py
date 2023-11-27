@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-tableMusic = pd.read_csv("./tableMusic.csv", sep=(","), index_col='id_music')
+tm = pd.read_csv("./tm.csv", sep=(","), index_col='id_music')
 #style  type    title   songwritter year    artist  rating_global   rating_user duration
 
 title_music = str(input("What's the title of the song? "))
@@ -32,5 +32,5 @@ duration_music = (minutes*60)+seconds
 
 new_music = {'style': style_music, 'type': type_music, 'title': title_music, 'songwritter': songwritter_music, 'year': year_music, 'artist': artist_music, 'rating_global': rating_global_music,  'rating_user':rating_user_music, 'duration': duration_music}
 
-tableMusic = tableMusic.append(new_music, ignore_index=True)
-print(tableMusic)
+tm = tm.append(new_music, ignore_index=True)
+print(tm)
