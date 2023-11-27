@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-tm = pd.read_csv("./tm.csv", sep=(","), index_col='id_music')
+tm = pd.read_csv("./tableMusic.csv", sep=(","), index_col='id_music')
 #style  type    title   songwritter year    artist  rating_global   rating_user duration
 
 title_music = str(input("What's the title of the song? "))
