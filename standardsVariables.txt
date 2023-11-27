@@ -1,0 +1,31 @@
+Variáveis globais:
+
+- Ordem de verificação da tabela .csv:
+    style  
+    type    
+    title   
+    songwritter 
+    year    
+    artist  
+    rating_global  
+    rating_user duration
+
+- Nomes de ficheiros:
+    xxMm    ex: addStyle.py #Ficheiro .py para adicionar uma novo estilo
+
+- Quando se referir ao X a variável vai ser = Y: 
+    style = stl 
+    type = type
+    title = ttl
+    songwritter = songwritter
+    year = year  
+    artist = art 
+    rating_global = rt_global
+    rating_user duration = rt_user
+
+- Quando for dar nomes a qualquer variável deve ser feito:
+    xx_Mm   ex: ttl_music #Que quer dizer o título da música
+
+- Quando for declarar uma função e o retorno:
+    xxMm    ex: addMusic #Que quer dizer que a função serve para adicionar uma nova música
+    yyPp    ex: newMusic #Retorno de uma função
