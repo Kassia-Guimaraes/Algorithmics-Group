@@ -8,7 +8,8 @@ Variáveis globais:
     year    
     artist  
     rating_global  
-    rating_user duration
+    rating_user 
+    duration
 
 - Nomes de ficheiros:
     xxMm    ex: addStyle.py #Ficheiro .py para adicionar uma novo estilo
@@ -21,7 +22,8 @@ Variáveis globais:
     year = year  
     artist = art 
     rating_global = rt_global
-    rating_user duration = rt_user
+    rating_user = rt_user
+    duration = drt
 
 - Quando for dar nomes a qualquer variável deve ser feito:
     xx_Mm   ex: ttl_music #Que quer dizer o título da música
