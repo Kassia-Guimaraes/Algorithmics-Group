@@ -1,25 +1,25 @@
 Variáveis globais:
 
 - Ordem de verificação da tabela .csv:
-    style  
-    type    
-    title   
-    songwritter 
-    year    
-    artist  
-    rating_global  
+    style
+    type
+    title
+    songwriter
+    year
+    artist
+    rating_global
     rating_user duration
 
 - Nomes de ficheiros:
     xxMm    ex: addStyle.py #Ficheiro .py para adicionar uma novo estilo
 
-- Quando se referir ao X a variável vai ser = Y: 
-    style = stl 
+- Quando se referir ao X a variável vai ser = Y:
+    style = stl
     type = type
     title = ttl
-    songwritter = songwritter
-    year = year  
-    artist = art 
+    songwriter = songwriter
+    year = year
+    artist = art
     rating_global = rt_global
     rating_user duration = rt_user
 
