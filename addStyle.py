@@ -1,6 +1,5 @@
 import pandas as pd
 import os.path
-
 from pandas.core.internals.blocks import new_block
 
 styles = []
