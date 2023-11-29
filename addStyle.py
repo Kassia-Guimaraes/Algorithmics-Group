@@ -17,7 +17,7 @@ else:
     print("Current styles:" + ', '.join(styles))
 
 def addStyle():
-    new_Style = (input())
+    new_Style = int((input()))
     if new_Style == 0:
         print("Operation cancelled")
     else:
