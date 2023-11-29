@@ -3,8 +3,6 @@ import os.path
 from pandas.core.internals.blocks import new_block
 
 styles = []
-tm = pd.read_csv("./tableMusic.csv", sep=(","), index_col='id_music')
-styles = (list(tm.loc[:, "style"].drop_duplicates()))
 
 # read populate styles with the "styles.csv" from previous execution, if it exists
 if(os.path.isfile('styles.csv')):
@@ -17,8 +15,8 @@ else:
     print("Current styles:" + ', '.join(styles))
 
 def addStyle():
-    new_Style = int((input()))
-    if new_Style == 0:
+    new_Style = (input())
+    if new_Style == "0":
         print("Operation cancelled")
     else:
         styles.append(new_Style)
