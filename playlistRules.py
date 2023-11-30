@@ -1,26 +1,26 @@
 import pandas as pd
 import numpy as np
-from IPython.display import display
 
 tm = pd.read_csv("./tableMusic.csv", sep=(","), index_col='id_music')
 
-drt_limit = 3600 #seconds
-msc_limit_rt5 = 10 #10 rt >= 4
-msc_limit_rt4 = 5 #10 rt < 4
+def crt_play():
+    while True:
+        msc_rt_max = tm[(tm['rating_global'] > 4)].sample(10)  # 10 músicas com rating > 4 
+        msc_rt_min = tm[(tm['rating_global'] <= 4)].sample(5)  # 5 músicas com rating <= 4
 
-#parameters
-year = int(input("Search by specific year: "))
-search_per_year = tm[tm['year']== year]
+        playlist = pd.concat([msc_rt_max, msc_rt_min])  # mesclando músicas
+        drt_total = playlist['duration'].sum() #calculo da soma das durações
 
-drt_total = search_per_year[['duration']].sum() #Soma da duração das músicas
-count_elements = search_per_year[['title']].count() #conta quantos elementos têm na lista
+        if drt_total <= 3600:
+            break  # sair do loop se a duração total for menor ou igual a 3600
 
-while count_elements < 15:
-    new_year = year - 1
-    search_per_new_year = tm[tm['year']== new_year]
-    search_per_year = pd.concat([search_per_year, search_per_new_year])
+    return playlist  # retornando o DataFrame da playlist
 
-    count_elements = search_per_year[['title']].count() 
+play_auto = crt_play() #pega a playlist criada
+count_style = play_auto['style'].value_counts() # contando músicas por estilo
 
-display(count_elements)
-display(search_per_year[['title', 'artist', 'duration','style','year']])
+print("Total playlist duration:", play_auto['duration'].sum())
+print("Playlist:")
+print(play_auto[['title', 'rating_global', 'style', 'year']])
+print("\nSongs per style:")
+print(count_style)

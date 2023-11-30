@@ -8,7 +8,8 @@ Variáveis globais:
     year    
     artist  
     rating_global  
-    rating_user duration
+    rating_user 
+    duration
 
 - Nomes de ficheiros:
     xxMm    ex: addStyle.py #Ficheiro .py para adicionar uma novo estilo

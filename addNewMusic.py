@@ -17,7 +17,7 @@ songwritter_new_msc = songwritter_new_msc.title()
 
 year_new_msc = int(input("what year was the song released? "))
 
-art_new_msc = input("Who sings the music? ")	
+art_new_msc = input("Who sings the songs? ")	
 art_new_msc = art_new_msc.title()
 
 rt_global_new_msc = int(input("What's the global rating of the song? "))	
