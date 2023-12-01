@@ -1,120 +1,121 @@
-id_music,style,type,title,songwritter,year,artist,rating_global,rating_user,duration
-1,Rock,Band,Numb,Linkin Park,2003,Linkin Park,4,,188
-2,Rock,Band,How You Remind Me,Chad Kroeger,2001,Nickelback,5,,228
-3,Rock,Band,Californication,"Anthony Kiedis, Chad Smith, Flea E John Frusciante",1999,Red Hot Chili Peppers,5,,322
-4,Rock,Band,Clint Eastwood,"Damon Albarn, Jamie Hewlett, Teren Jones",2001,Gorillaz,4,,269
-5,Rock,Band,Feel Good Inc,"Damon Albarn, David Jolicoeur",2005,Gorillaz,5,,254
-6,Rock,Band,Chop Suey,"Daron Malakian, Serj Tankian",2001,System Of Down,5,,225
-7,Rock,Band,Otherside,"Flea, Frusciante, Kiedis, Smith",1999,Red Hot Chili Peppers,5,,256
-8,Rock,Band,Dumb,Kurt Cobain,1993,Nirvana,4,,149
-9,Rock,Band,Come As You Are,Kurt Cobain,1991,Nirvana,4,,225
-10,Rock,Band,Crazy,"Steven Tyler, Joe Perry, Desmond Child",1993,Aerosmith,4,,374
-11,Rock,Band,Be Yourself,"Brad Wilk, Chris Cornell, Tim Commerford, Tom Morello",2005,Audioslave,5,,283
-12,Rock,Band,Its My Life,"Jon Bon Jovi, Richie Sambora E Max Martin",2000,Bon Jovi,5,,267
-13,Rock,Band,Runaway,"Jon Bon Jovi, George Karak",1984,Bon Jovi,4,,259
-14,Rock,Band,So Hoje,"Rogério Flausino, Fernanda Mello",2002,Jota Quest,4,,249
-15,Rock,Solo,Night People,Freddie Dickson,2021,Freddie Dickson,3,,235
-16,Rock,Band,Lithium,Amy Lee,2006,Evanescence,0,,228
-17,Rock,Band,Skin,Vok,2022,Vok,2,,233
-18,Rock,Solo,Shut Us Down,Freddie Dickson,2013,Freddie Dickson,3,,205
-19,Rock,Band,Bring Me To Life,"Amy Lee, Ben Moody E David Hodges",2003,Evanescence,2,,236
-20,Folk,Band,Little Lion Man,Mumford And Sons,2009,Mumford And Sons,5,,247
-21,Folk,Band,I Will Wait,Mumford And Sons,2012,Mumford & Sons,4,,304
-22,Folk,Band,I Will Tell Me Ma,The Dubliners,1964,The Dubliners,4,,126
-23,Folk,Band,Dirty Old Town,Ewan Maccoll,1985,The Pogues,4,,238
-24,Folk,Solo,Like A Rolling Stone,Bob Dylan,1965,Bob Dylan,5,,359
-25,Folk,Band,This Land Is Your Land,Woody Guthrie,1944,Woody Guthrie,5,,171
-26,Folk,Solo,Old Man ,Elliot Mazer E Neil Young,1972,Neil Young,4,,204
-27,Folk,Solo,Father And Son,Cat Stevens,1970,Cat Stevens,4,,184
-28,Folk,Band,If My Love Loves Me,Al Cowan,2018,Macushla,5,,405
-29,Folk,Band,Spancil Hill,Al Cowan,2016,Macushla,4,,276
-30,Folk,Band,Whiskey In The Jar ,Desconhecido,2014,The Irish Rovers,5,,189
-31,Folk,Band,Drunken Sailor,Desconhecido,2012,The Irish Rovers,4,,176
-32,Folk,Band,Pink Moon,John Wood,1972,Nick Drake,4,,124
-33,Folk,Band,Riverman,Robert Kirby And Joe Boyd,1969,Nick Drake,4,,243
-34,Folk,Band,Fairytale Of New York,Jem Finer E Shane Macgowan,1987,The Pogues,4,,273
-35,Folk,Band,Big Yellow Taxi,Joni Mitchell ,1970,Joni Mitchell ,0,,139
-36,Folk,Duo,Stolen Apple,Phil Poirier E Pat Malia,2010,Phil Poirier,3,,219
-37,Folk,Duo,Goddess Moon,Phil Poirier E Pat Malia,2010,Phil Poirier,2,,241
-38,Folk,Band,White Winter Hymnal ,Robin Pecknold,2008,Fleet Foxes,1,,147
-39,Folk,Band,Mykonos,Robin Pecknold,2008,Fleet Foxes,1,,228
-40,Classical,Solo,L'estro Armonico Op.3 No.8 In A Minor Rv 522 - Iii Allegro,Antonio Vivaldi,1711,Vivaldi,5,,193
-41,Classical,Solo,"Allegro - Brandenburg Concerto No. 1 In F Major, Bwv 1046",Johann Sebastian Bach,1721,Bach,4,,283
-42,Classical,Solo,"Eine Kleine Nachtmusik, K. 525: I. Allegro", Wolfgang Amadeus Mozart ,1787,Mozart ,5,,465
-43,Classical,Solo,"Sinfonia N.º 7 Em Lá Maior, Op.92",Ludwig Van Beethoven,1812,Beethoven,5,,527
-44,Classical,Solo,Le Onde,Ludovico Einaudi,1996,Ludovico Einaudi,5,,298
-45,Classical,Solo,Nocturne Op.9 No.2,Frederic Chopin,1832,Chopin,4,,269
-46,Classical,Solo,O Guarani Ii,Carlos Gomes,1870,Carlos Gomes,5,,542
-47,Classical,Solo,Divenire,Ludovico Einaudi,2006,Ludovico Einaudi,5,,406
-48,Classical,Solo,"Swan Lake - Act Ii, Nº 10",Piotr Ilitch Tchaikovsky,1871,Tchaikovsky,5,,176
-49,Classical,Solo,Una Mattina,Ludovico Einaudi,2004,Ludovico Einaudi,4,,206
-50,Classical,Solo,"Waltz No. 7 In C Sharp Minor, Op. 64,2",Frederic Chopin,1847,Chopin,4,,183
-51,Classical,Solo,Lo Schiavo - Alvorada,Carlos Gomes,1883,Carlos Gomes,4,,432
-52,Classical,Solo,The Magic Flute: Overture, Wolfgang Amadeus Mozart ,1791,Mozart ,5,,387
-53,Classical,Solo,"Moonlight Sonata No 14, Op. 27 , No 2: Adagio Sostenutto",Ludwig Van Beethoven,1801,Beethoven,4,,361
-54,Classical,Solo,Waltz Of The Flowers - Act Ii - No 13,Tchaikovsky,1892,Tchaikovsky,5,,457
-55,Classical,Solo,Reverie,Claude Debussy,1890,Claude Debussy,0,,307
-56,Classical,Solo,We Were There,Federico Albanese,2018,Federico Albanese,2,,217
-57,Classical,Solo,Serenade,Franz Schubert,1826,Schubert,1,,382
-58,Classical,Solo,Sway Sway,Heinali,2013,Heinali,3,,294
-59,Classical,Solo,Winter Melody,Jacob's Piano,2019,Jacob's Piano,1,,219
-60,Pop,Band,Wannabe,Richard Stannard,1996,Spice Girls,5,,173
-61,Pop,Band,All That She Wants,Jonas Berggren,1993,Ace of Base,5,,211
-62,Pop,Solo,Waiting for Tonight,Maria Christiansen,1999,Jennifer Lopez,4,,246
-63,Pop,Solo,Believe,Brian Higgins,1998,Cher,5,,239
-64,Pop,Solo,Vogue,Madonna,1990,Madonna,3,,263
-65,Pop,Solo,Genie In a Bottle,David Frank,1999,Christina Aguilera,4,,217
-66,Pop,Solo,Fields Of Gold,Sting,1993,Sting,4,,222
-67,Pop,Band,You Get What You Give,Rick Nowels,1998,New Radicals,4,,301
-68,Pop,Solo,All I Wanna Do,Sheryl Crow,1993,Sheryl Crow,4,,272
-69,Pop,Solo,Ray of Light,Madona,1998,Madonna,4,,322
-70,Pop,Solo,Kiss from a Rose,Seal,1994,Seal,4,,288
-71,Pop,Solo,Maria,Jimmy Destri,2002,Blondie,4,,249
-72,Pop,Solo,Walking on Broken Glass,Annie Lennox,1992,Annie Lennox,4,,253
-73,Pop,Solo,Torn,Phil Thornalley,1997,Natalie Imbruglia,4,,244
-74,Pop,Solo,Ironic,Glen Ballard,1995,Alanis Morissette,4,,230
-75,Pop,Band,Lovefool,Nina Persson,1996,The Cardigans,5,,193
-76,Pop,Solo,Too Funky,George Michael,1998,George Michael,3,,225
-77,Pop,Solo,My Love Is Your Love,Wyclef Jean,1998,Whitney Houston,4,,262
-78,Pop,Band,Breathless,Robert John Lange,2000,The Corrs,4,,208
-79,Pop,Solo,Vision of Love,Mariah Carey,1990,Mariah Carey,4,,209
-80,Jazz,Band,Take Five,Paul Desmond,1959,The Dave Brubeck Quartet,4,,324
-81,Jazz,Solo,The Girl From Ipanema,Antonio Carlos Jobim,1964,Stan Getz,4,,320
-82,Jazz,Solo,Nature Boy,Eden Ahbez,1991,Nat King Cole,4,,174
-83,Jazz,Solo,Love Me Or Leave Me,Gus Kahn,1966,Nina Simone,4,,245
-84,Jazz,Solo,My Funny Valentine,Lorenz Hart,1956,Chet Baker,4,,141
-85,Jazz,Solo,Fly Me To The Moon,Bart Howard,1965,Astrud Gilberto,4,,143
-86,Jazz,Solo,Blue Moon,Lorenz Hart,1956,Billie Holiday,4,,208
-87,Jazz,Solo,Cristo Redentor,Duke Pearson,1963,Donald Byrd,5,,343
-88,Jazz,Solo,Watermelon Man,Herbie Hancock,1962,Herbie Hancock,5,,429
-89,Jazz,Solo,A Day In The Life,John Lennon,1967,Wes Montgomery,5,,350
-90,Jazz,Solo,Song For My Father,Horace Silver,1999,Horace Silver,5,,438
-91,Jazz,Solo,Unforgettable,Irving Gordon,1954,Nat King Cole,4,,192
-92,Jazz,Solo,Summertime,DuBose Heyward,1957,Charlie Parker,3,,167
-93,Jazz,Solo,A Kiss To Build A Dream On,Bert Kalmar,1952,Louis Armstrong,4,,182
-94,Jazz,Solo,Autumn Leaves,Johnny Mercer,1958,Cannonball Adderley,3,,660
-95,Jazz,Solo,My Favorite Things,Richard Rodgers,1961,John Coltrane,3,,824
-96,Jazz,Solo,Night And Day,Cole Porter,1997,Ella Fitzgerald,3,,184
-97,Jazz,Solo,Besame Mucho,Consuelo Velazquez,2001,Dave Brubeck,3,,355
-98,Jazz,Solo,Crystal Silence,Chick Corea,1972,Chick Corea,3,,415
-99,Jazz,Solo,Better Git It in Your Soul,Charles Mingus,1959,Charles Mingus,3,,441
-100,Eletronic,Band,Angel,Andrew Vowles,1998,Massive Attack,4,,380
-101,Eletronic,Band,So Com Voce,Gilberto,2000,Thievery Corporation,3,,167
-102,Eletronic,Band,Cherry Blossom Girl,Nicolas Godin,2004,Air,4,,220
-103,Eletronic,Band,Breathe,Angela McCluskey,2001,Telepopmusik,4,,282
-104,Eletronic,Band,Just for Tonight,Nick Littlemore,2010,Groove Armada,2,,246
-105,Eletronic,Band,Dayvan Cowboy,Boards of Canada,2005,Boards of Canada,3,,300
-106,Eletronic,Duo,Here She Comes Again,Royksopp,2014,Royksopp,3,,302
-107,Eletronic,Solo,Ageispolis,RR,1992,Aphex Twin,3,,323
-108,Eletronic,Band,John Lee Huber,Richard Dorfmeister,2005,Tosca,3,,257
-109,Eletronic,Band,A New Error,Bronsert,2009,Moderat,4,,367
-110,Eletronic,Band,Star Guitar,Ed Simons,2002,The Chemical Brothers,3,,387
-111,Eletronic,Band,Veridis Quo,Thomas Bangalter,2001,Daft Punk,4,,345
-112,Eletronic,Band,Roygbiv,Boards of Canada,1998,Boards of Canada,4,,149
-113,Eletronic,Solo,Deadly Valentine,Charlotte Gainsbourg,2017,Charlotte Gainsbourg,3,,365
-114,Eletronic,Band,Under Your Spell,Desire,2009,Desire,4,,296
-115,Eletronic,Solo,Riders On the Storm,Yonderboi,2000,Yonderboi,3,,259
-116,Eletronic,Solo,Perpetual Motion,Max Cooper,2019,Max Cooper,3,,299
-117,Eletronic,Band,Waiting for the Night,Martin Gore,1990,Depeche Mode,3,,367
-118,Eletronic,Solo,Bachelorette,Bjork,1997,Bjork,3,,313
-119,Eletronic,Solo,The Eraser,Thom Yorke,2006,Thom Yorke,3,,296
+id_music,style,type,title,songwritter,year,artist,rating_global,rating_user,duration,,
+1,Rock,Band,One More Time,"Mark Hoppus, Tom DeLong, Travis Barker, Andrew Goldstein and Aldae",2023,Blink 182,4,,208,,
+2,Rock,Band,Numb,Linkin Park,2003,Linkin Park,4,,188,,
+3,Rock,Band,How You Remind Me,Chad Kroeger,2001,Nickelback,5,,228,,
+4,Rock,Band,Californication,"Anthony Kiedis, Chad Smith, Flea E John Frusciante",1999,Red Hot Chili Peppers,5,,322,,
+5,Rock,Band,Clint Eastwood,"Damon Albarn, Jamie Hewlett, Teren Jones",2001,Gorillaz,4,,269,,
+6,Rock,Band,Feel Good Inc,"Damon Albarn, David Jolicoeur",2005,Gorillaz,5,,254,,
+7,Rock,Band,Chop Suey,"Daron Malakian, Serj Tankian",2001,System Of Down,5,,225,,
+8,Rock,Band,Otherside,"Flea, Frusciante, Kiedis, Smith",1999,Red Hot Chili Peppers,5,,256,,
+9,Rock,Band,Dumb,Kurt Cobain,1993,Nirvana,4,,149,,
+10,Rock,Band,Come As You Are,Kurt Cobain,1991,Nirvana,4,,225,,
+11,Rock,Band,Crazy,"Steven Tyler, Joe Perry, Desmond Child",1993,Aerosmith,4,,374,,
+12,Rock,Band,Be Yourself,"Brad Wilk, Chris Cornell, Tim Commerford, Tom Morello",2005,Audioslave,5,,283,,
+13,Rock,Band,Its My Life,"Jon Bon Jovi, Richie Sambora E Max Martin",2000,Bon Jovi,5,,267,,
+14,Rock,Band,Runaway,"Jon Bon Jovi, George Karak",1984,Bon Jovi,4,,259,,
+15,Rock,Band,So Hoje,"Rogério Flausino, Fernanda Mello",2002,Jota Quest,4,,249,,
+16,Rock,Solo,Night People,Freddie Dickson,2021,Freddie Dickson,3,,235,,
+17,Rock,Band,Lithium,Amy Lee,2006,Evanescence,0,,228,,
+18,Rock,Band,Skin,Vok,2022,Vok,2,,233,,
+19,Rock,Solo,Shut Us Down,Freddie Dickson,2013,Freddie Dickson,3,,205,,
+20,Rock,Band,Bring Me To Life,"Amy Lee, Ben Moody E David Hodges",2003,Evanescence,2,,236,,
+21,Folk,Band,Little Lion Man,Mumford And Sons,2009,Mumford And Sons,5,,247,,
+22,Folk,Band,I Will Wait,Mumford And Sons,2012,Mumford & Sons,4,,304,,
+23,Folk,Band,I Will Tell Me Ma,The Dubliners,1964,The Dubliners,4,,126,,
+24,Folk,Band,Dirty Old Town,Ewan Maccoll,1985,The Pogues,4,,238,,
+25,Folk,Solo,Like A Rolling Stone,Bob Dylan,1965,Bob Dylan,5,,359,,
+26,Folk,Band,This Land Is Your Land,Woody Guthrie,1944,Woody Guthrie,5,,171,,
+27,Folk,Solo,Old Man ,Elliot Mazer E Neil Young,1972,Neil Young,4,,204,,
+28,Folk,Solo,Father And Son,Cat Stevens,1970,Cat Stevens,4,,184,,
+29,Folk,Band,If My Love Loves Me,Al Cowan,2018,Macushla,5,,405,,
+30,Folk,Band,Spancil Hill,Al Cowan,2016,Macushla,4,,276,,
+31,Folk,Band,Whiskey In The Jar ,Desconhecido,2014,The Irish Rovers,5,,189,,
+32,Folk,Band,Drunken Sailor,Desconhecido,2012,The Irish Rovers,4,,176,,
+33,Folk,Band,Pink Moon,John Wood,1972,Nick Drake,4,,124,,
+34,Folk,Band,Riverman,Robert Kirby And Joe Boyd,1969,Nick Drake,4,,243,,
+35,Folk,Band,Fairytale Of New York,Jem Finer E Shane Macgowan,1987,The Pogues,4,,273,,
+36,Folk,Band,Big Yellow Taxi,Joni Mitchell ,1970,Joni Mitchell ,0,,139,,
+37,Folk,Duo,Stolen Apple,Phil Poirier E Pat Malia,2010,Phil Poirier,3,,219,,
+38,Folk,Duo,Goddess Moon,Phil Poirier E Pat Malia,2010,Phil Poirier,2,,241,,
+39,Folk,Band,White Winter Hymnal ,Robin Pecknold,2008,Fleet Foxes,1,,147,,
+40,Folk,Band,Mykonos,Robin Pecknold,2008,Fleet Foxes,1,,228,,
+41,Classical,Solo,L'estro Armonico Op.3 No.8 In A Minor Rv 522 - Iii Allegro,Antonio Vivaldi,1711,Vivaldi,5,,193,,
+42,Classical,Solo,"Allegro - Brandenburg Concerto No. 1 In F Major, Bwv 1046",Johann Sebastian Bach,1721,Bach,4,,283,,
+43,Classical,Solo,"Eine Kleine Nachtmusik, K. 525: I. Allegro", Wolfgang Amadeus Mozart ,1787,Mozart ,5,,465,,
+44,Classical,Solo,"Sinfonia N.º 7 Em Lá Maior, Op.92",Ludwig Van Beethoven,1812,Beethoven,5,,527,,
+45,Classical,Solo,Le Onde,Ludovico Einaudi,1996,Ludovico Einaudi,5,,298,,
+46,Classical,Solo,Nocturne Op.9 No.2,Frederic Chopin,1832,Chopin,4,,269,,
+47,Classical,Solo,O Guarani Ii,Carlos Gomes,1870,Carlos Gomes,5,,542,,
+48,Classical,Solo,Divenire,Ludovico Einaudi,2006,Ludovico Einaudi,5,,406,,
+49,Classical,Solo,"Swan Lake - Act Ii, Nº 10",Piotr Ilitch Tchaikovsky,1871,Tchaikovsky,5,,176,,
+50,Classical,Solo,Una Mattina,Ludovico Einaudi,2004,Ludovico Einaudi,4,,206,,
+51,Classical,Solo,"Waltz No. 7 In C Sharp Minor, Op. 64,2",Frederic Chopin,1847,Chopin,4,,183,,
+52,Classical,Solo,Lo Schiavo - Alvorada,Carlos Gomes,1883,Carlos Gomes,4,,432,,
+53,Classical,Solo,The Magic Flute: Overture, Wolfgang Amadeus Mozart ,1791,Mozart ,5,,387,,
+54,Classical,Solo,"Moonlight Sonata No 14, Op. 27 , No 2: Adagio Sostenutto",Ludwig Van Beethoven,1801,Beethoven,4,,361,,
+55,Classical,Solo,Waltz Of The Flowers - Act Ii - No 13,Tchaikovsky,1892,Tchaikovsky,5,,457,,
+56,Classical,Solo,Reverie,Claude Debussy,1890,Claude Debussy,0,,307,,
+57,Classical,Solo,We Were There,Federico Albanese,2018,Federico Albanese,2,,217,,
+58,Classical,Solo,Serenade,Franz Schubert,1826,Schubert,1,,382,,
+59,Classical,Solo,Sway Sway,Heinali,2013,Heinali,3,,294,,
+60,Classical,Solo,Winter Melody,Jacob's Piano,2019,Jacob's Piano,1,,219,,
+61,Pop,Band,Wannabe,Richard Stannard,1996,Spice Girls,5,,173,,
+62,Pop,Band,All That She Wants,Jonas Berggren,1993,Ace of Base,5,,211,,
+63,Pop,Solo,Waiting for Tonight,Maria Christiansen,1999,Jennifer Lopez,4,,246,,
+64,Pop,Solo,Believe,Brian Higgins,1998,Cher,5,,239,,
+65,Pop,Solo,Vogue,Madonna,1990,Madonna,3,,263,,
+66,Pop,Solo,Genie In a Bottle,David Frank,1999,Christina Aguilera,4,,217,,
+67,Pop,Solo,Fields Of Gold,Sting,1993,Sting,4,,222,,
+68,Pop,Band,You Get What You Give,Rick Nowels,1998,New Radicals,4,,301,,
+69,Pop,Solo,All I Wanna Do,Sheryl Crow,1993,Sheryl Crow,4,,272,,
+70,Pop,Solo,Ray of Light,Madona,1998,Madonna,4,,322,,
+71,Pop,Solo,Kiss from a Rose,Seal,1994,Seal,4,,288,,
+72,Pop,Solo,Maria,Jimmy Destri,2002,Blondie,4,,249,,
+73,Pop,Solo,Walking on Broken Glass,Annie Lennox,1992,Annie Lennox,4,,253,,
+74,Pop,Solo,Torn,Phil Thornalley,1997,Natalie Imbruglia,4,,244,,
+75,Pop,Solo,Ironic,Glen Ballard,1995,Alanis Morissette,4,,230,,
+76,Pop,Band,Lovefool,Nina Persson,1996,The Cardigans,5,,193,,
+77,Pop,Solo,Too Funky,George Michael,1998,George Michael,3,,225,,
+78,Pop,Solo,My Love Is Your Love,Wyclef Jean,1998,Whitney Houston,4,,262,,
+79,Pop,Band,Breathless,Robert John Lange,2000,The Corrs,4,,208,,
+80,Pop,Solo,Vision of Love,Mariah Carey,1990,Mariah Carey,4,,209,,
+81,Jazz,Band,Take Five,Paul Desmond,1959,The Dave Brubeck Quartet,4,,324,,
+82,Jazz,Solo,The Girl From Ipanema,Antonio Carlos Jobim,1964,Stan Getz,4,,320,,
+83,Jazz,Solo,Nature Boy,Eden Ahbez,1991,Nat King Cole,4,,174,,
+84,Jazz,Solo,Love Me Or Leave Me,Gus Kahn,1966,Nina Simone,4,,245,,
+85,Jazz,Solo,My Funny Valentine,Lorenz Hart,1956,Chet Baker,4,,141,,
+86,Jazz,Solo,Fly Me To The Moon,Bart Howard,1965,Astrud Gilberto,4,,143,,
+87,Jazz,Solo,Blue Moon,Lorenz Hart,1956,Billie Holiday,4,,208,,
+88,Jazz,Solo,Cristo Redentor,Duke Pearson,1963,Donald Byrd,5,,343,,
+89,Jazz,Solo,Watermelon Man,Herbie Hancock,1962,Herbie Hancock,5,,429,,
+90,Jazz,Solo,A Day In The Life,John Lennon,1967,Wes Montgomery,5,,350,,
+91,Jazz,Solo,Song For My Father,Horace Silver,1999,Horace Silver,5,,438,,
+92,Jazz,Solo,Unforgettable,Irving Gordon,1954,Nat King Cole,4,,192,,
+93,Jazz,Solo,Summertime,DuBose Heyward,1957,Charlie Parker,3,,167,,
+94,Jazz,Solo,A Kiss To Build A Dream On,Bert Kalmar,1952,Louis Armstrong,4,,182,,
+95,Jazz,Solo,Autumn Leaves,Johnny Mercer,1958,Cannonball Adderley,3,,660,,
+96,Jazz,Solo,My Favorite Things,Richard Rodgers,1961,John Coltrane,3,,824,,
+97,Jazz,Solo,Night And Day,Cole Porter,1997,Ella Fitzgerald,3,,184,,
+98,Jazz,Solo,Besame Mucho,Consuelo Velazquez,2001,Dave Brubeck,3,,355,,
+99,Jazz,Solo,Crystal Silence,Chick Corea,1972,Chick Corea,3,,415,,
+100,Jazz,Solo,Better Git It in Your Soul,Charles Mingus,1959,Charles Mingus,3,,441,,
+101,Eletronic,Band,Angel,Andrew Vowles,1998,Massive Attack,4,,380,,
+102,Eletronic,Band,So Com Voce,Gilberto,2000,Thievery Corporation,3,,167,,
+103,Eletronic,Band,Cherry Blossom Girl,Nicolas Godin,2004,Air,4,,220,,
+104,Eletronic,Band,Breathe,Angela McCluskey,2001,Telepopmusik,4,,282,,
+105,Eletronic,Band,Just for Tonight,Nick Littlemore,2010,Groove Armada,2,,246,,
+106,Eletronic,Band,Dayvan Cowboy,Boards of Canada,2005,Boards of Canada,3,,300,,
+107,Eletronic,Duo,Here She Comes Again,Royksopp,2014,Royksopp,3,,302,,
+108,Eletronic,Solo,Ageispolis,RR,1992,Aphex Twin,3,,323,,
+109,Eletronic,Band,John Lee Huber,Richard Dorfmeister,2005,Tosca,3,,257,,
+110,Eletronic,Band,A New Error,Bronsert,2009,Moderat,4,,367,,
+111,Eletronic,Band,Star Guitar,Ed Simons,2002,The Chemical Brothers,3,,387,,
+112,Eletronic,Band,Veridis Quo,Thomas Bangalter,2001,Daft Punk,4,,345,,
+113,Eletronic,Band,Roygbiv,Boards of Canada,1998,Boards of Canada,4,,149,,
+114,Eletronic,Solo,Deadly Valentine,Charlotte Gainsbourg,2017,Charlotte Gainsbourg,3,,365,,
+115,Eletronic,Band,Under Your Spell,Desire,2009,Desire,4,,296,,
+116,Eletronic,Solo,Riders On the Storm,Yonderboi,2000,Yonderboi,3,,259,,
+117,Eletronic,Solo,Perpetual Motion,Max Cooper,2019,Max Cooper,3,,299,,
+118,Eletronic,Band,Waiting for the Night,Martin Gore,1990,Depeche Mode,3,,367,,
+119,Eletronic,Solo,Bachelorette,Bjork,1997,Bjork,3,,313,,
+120,Eletronic,Solo,The Eraser,Thom Yorke,2006,Thom Yorke,3,,296,,
