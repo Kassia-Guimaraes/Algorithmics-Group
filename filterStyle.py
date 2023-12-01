@@ -2,25 +2,38 @@ import pandas as pd
 import os.path
 import addStyle
 
+def category_list(category):
+    if category == "style":
+        return addStyle.refresh_styles_list()
+    else:
+        tm = pd.read_csv('tableMusic.csv')
+        return (list(tm.loc[:, category].drop_duplicates()))
+
+# standard message to be reused for other filtering messages
+def pick_message(a):
+    print(a + " - press a number:")
+    for i in range(0, len(filter), 1):
+        print(str(i+1) + " " + str(filter[i]))
+
+def filterSongs(theFilter):
+    picked_filter = 0
+    while picked_filter == 0:
+        try:
+            picked_filter = filter[int(input())-1]
+            print("The " + theFilter + " picked was " + str(picked_filter) + "\n")
+            tm = pd.read_csv('tableMusic.csv')
+            tm.set_index(theFilter, inplace = True)
+            return tm.loc[picked_filter]
+        except:
+            picked_filter = 0
+            print("Invalid choice.\n")
+            pick_message("Style")
+
 # define styles with addStyle.py function
-styles = addStyle.refresh_styles_list()
+filter = category_list("style")
 
-def pick_style_message():
-    print("Pick the style:\n")
-    for i in range(0, len(styles), 1):
-        print(str(i+1) + " " + str(styles[i]) + "\n")
+pick_message("Style")
 
-pick_style_message()
+filtered_songs = filterSongs("style")
 
-picked_style = 0
-while picked_style == 0:
-    try:
-        picked_style = styles[int(input())-1]
-        print("The style picked was " + str(picked_style))
-    except:
-        picked_style = 0
-        print("Your choice is out of range.\n")
-        pick_style_message()
-# def picked_style_songs():
-#     tm = pd.read_csv('tableMusic.csv')
-#     return (list(tm.loc[:, "style"].drop_duplicates()))
+print(filtered_songs)
