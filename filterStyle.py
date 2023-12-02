@@ -2,12 +2,11 @@ import pandas as pd
 import os.path
 import addStyle
 
-def category_list(category):
+def category_list(category, table):
     if category == "style":
         return addStyle.refresh_styles_list()
     else:
-        tm = pd.read_csv('tableMusic.csv')
-        return (list(tm.loc[:, category].drop_duplicates()))
+        return (list(table.loc[:, category].drop_duplicates()))
 
 # standard message to be reused for other filtering messages
 def filter_menu(a):
@@ -20,11 +19,6 @@ def filterSongs(theFilter):
     picked_filter = 0
     while picked_filter == 0:
         try:
-            # picked_filter = filter[int(input())-1]
-            # print("The " + theFilter + " picked was " + str(picked_filter) + "\n")
-            # tm = pd.read_csv('tableMusic.csv')
-            # tm.set_index(theFilter, inplace = True)
-            # return tm.loc[picked_filter]
             if theFilter == "style":
                 picked_filter = filter[int(input())-1]
                 print("The " + theFilter + " picked was " + str(picked_filter) + "\n")
@@ -34,22 +28,21 @@ def filterSongs(theFilter):
             else:
                 picked_filter = filter[int(input())-1]
                 print("The " + theFilter + " picked was " + str(picked_filter) + "\n")
-                # filtered_songs.set_index(theFilter, inplace = True)
-                # return filtered_songs.loc[picked_filter]
-                return filtered_songs
+                filtered_songs.set_index(theFilter, inplace = True)
+                return filtered_songs.loc[picked_filter]
         except:
             picked_filter = 0
             print("Invalid choice.\n")
             filter_menu(theFilter)
 
 # define styles with addStyle.py function
-filter = category_list("style")
+filter = category_list("style", pd.read_csv('tableMusic.csv'))
 
 filter_menu("Style")
 
 filtered_songs = filterSongs("style")
 
-filter = category_list("artist")
+filter = category_list("artist", filtered_songs)
 
 filter_menu("Artist")
 
