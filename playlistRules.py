@@ -1,6 +1,6 @@
 import pandas as pd
 
-tm = pd.read_csv("./tableMusic.csv", sep=(","))
+tm = pd.read_csv("data/tableMusic.csv", sep=(","))
 
 def create_play(name_playlist):
     while True:

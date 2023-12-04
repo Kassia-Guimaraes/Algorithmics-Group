@@ -31,7 +31,7 @@ def filter_menu(a):
         print("\033[1m" + str(i+1) + "\033[0;0m " + str(filter[i]))
     return len(filter)
 
-filter_list = ["style", "artist", "songwritter", "type"]
+filter_list = ["style", "artist", "songwriter", "type"]
 
 # def applyFilters(array):
 for i in range(0, len(filter_list), 1):
