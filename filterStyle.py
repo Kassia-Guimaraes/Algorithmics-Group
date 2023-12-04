@@ -1,15 +1,13 @@
 import pandas as pd
 import os.path
-import addStyle
-
-
 
 # create list of all elements of given category used to create menu
 def category_list(category):
-    if category == "style":
-        return addStyle.refresh_styles_list()
-    else:
+    try:
         return (list(filtered_songs.loc[:, category].astype(str).drop_duplicates()))
+    except:
+        filtered_songs = list(pd.read_csv('tableMusic.csv').loc[:, category].astype(str).drop_duplicates())
+        return filtered_songs
 
 # retrieve the songs with a given filter
 def filterSongs(theFilter):
