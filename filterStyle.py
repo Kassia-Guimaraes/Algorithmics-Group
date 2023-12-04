@@ -41,6 +41,7 @@ for i in range(0, len(filter_list), 1):
     else:
         filter_menu(filter_list[i])
         filtered_songs = filterSongs(filter_list[i])
+
 print(filtered_songs)
 
 # print(applyFilters(filter_list))
