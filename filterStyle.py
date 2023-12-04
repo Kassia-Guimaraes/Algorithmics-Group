@@ -1,18 +1,25 @@
 import pandas as pd
 import os.path
 
+# pd.set_option('display.max_columns', 1000)
+
+filtered_songs = pd.read_csv('data/tableMusic.csv')
+
+filter_list = ["type", "songwriter", "artist", "style"]
+
 # create list of all elements of given category used to create menu
 def category_list(category):
     try:
+        print(filtered_songs)
+        # print(filtered_songs.loc[:, category])
         return (list(filtered_songs.loc[:, category].astype(str).drop_duplicates()))
     except:
-        filtered_songs = list(pd.read_csv('tableMusic.csv').loc[:, category].astype(str).drop_duplicates())
-        return filtered_songs
+        return
 
 # retrieve the songs with a given filter
 def filterSongs(theFilter):
     picked_filter = 0
-    filtered_songs = pd.read_csv('tableMusic.csv')
+    filtered_songs = pd.read_csv('data/tableMusic.csv')
     while picked_filter == 0:
         try:
             picked_filter = filter[int(input())-1]
@@ -32,18 +39,22 @@ def filter_menu(a):
         print("\033[1m" + str(i+1) + "\033[0;0m " + str(filter[i]))
     return len(filter)
 
-filter_list = ["style", "artist"]
-
 # def applyFilters(array):
 for i in range(0, len(filter_list), 1):
-    filter = category_list(filter_list[i])
-    if len(filter) == 1:
-        continue
-    else:
+    try:
+        filter = category_list(filter_list[i])
+        print(filter)
+
         filter_menu(filter_list[i])
         filtered_songs = filterSongs(filter_list[i])
 
-# print(pd.DataFrame(data=filtered_songs))
-# print(filtered_songs.query(year == 2001))
-# print(applyFilters(filter_list))
+        # if len(filter) == 1:
+        #     print("continues")
+        #     continue
+        # else:
+        #     filter_menu(filter_list[i])
+        #     filtered_songs = filterSongs(filter_list[i])
+    except Exception as e:
+        print("")
+
 print(filtered_songs)

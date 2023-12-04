@@ -5,10 +5,10 @@ from pandas.core.internals.blocks import new_block
 def refresh_styles_list():
     # read populate styles with the "styles.csv" from previous execution, if it exists
     if(os.path.isfile('styles.csv')):
-        return (list(pd.read_csv('styles.csv').loc[:, "0"]))
+        return (list(pd.read_csv('data/styles.csv').loc[:, "0"]))
     # otherwise extract styles from tableMusic.csv
     else:
-        tm = pd.read_csv('tableMusic.csv')
+        tm = pd.read_csv('data/tableMusic.csv')
         return (list(tm.loc[:, "style"].drop_duplicates()))
 
 styles = refresh_styles_list()
