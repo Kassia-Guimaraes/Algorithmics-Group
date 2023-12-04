@@ -1,4 +1,4 @@
-id_music,style,type,title,songwritter,year,artist,rating_global,rating_user,duration
+id_music,style,type,title,songwriter,year,artist,rating_global,rating_user,duration
 1,Rock,Band,Numb,Linkin Park,2003,Linkin Park,4,,188
 2,Rock,Band,How You Remind Me,Chad Kroeger,2001,Nickelback,5,,228
 3,Rock,Band,Californication,"Anthony Kiedis, Chad Smith, Flea E John Frusciante",1999,Red Hot Chili Peppers,5,,322
@@ -19,7 +19,7 @@ id_music,style,type,title,songwritter,year,artist,rating_global,rating_user,dura
 18,Rock,Solo,Shut Us Down,Freddie Dickson,2013,Freddie Dickson,3,,205
 19,Rock,Band,Bring Me To Life,"Amy Lee, Ben Moody E David Hodges",2003,Evanescence,2,,236
 20,Folk,Band,Little Lion Man,Mumford And Sons,2009,Mumford And Sons,5,,247
-21,Folk,Band,I Will Wait,Mumford And Sons,2012,Mumford & Sons,4,,304
+21,Folk,Band,I Will Wait,Mumford And Sons,2012,Mumford And Sons,4,,304
 22,Folk,Band,I Will Tell Me Ma,The Dubliners,1964,The Dubliners,4,,126
 23,Folk,Band,Dirty Old Town,Ewan Maccoll,1985,The Pogues,4,,238
 24,Folk,Solo,Like A Rolling Stone,Bob Dylan,1965,Bob Dylan,5,,359
@@ -67,7 +67,7 @@ id_music,style,type,title,songwritter,year,artist,rating_global,rating_user,dura
 66,Pop,Solo,Fields Of Gold,Sting,1993,Sting,4,,222
 67,Pop,Band,You Get What You Give,Rick Nowels,1998,New Radicals,4,,301
 68,Pop,Solo,All I Wanna Do,Sheryl Crow,1993,Sheryl Crow,4,,272
-69,Pop,Solo,Ray of Light,Madona,1998,Madonna,4,,322
+69,Pop,Solo,Ray of Light,Madonna,1998,Madonna,4,,322
 70,Pop,Solo,Kiss from a Rose,Seal,1994,Seal,4,,288
 71,Pop,Solo,Maria,Jimmy Destri,2002,Blondie,4,,249
 72,Pop,Solo,Walking on Broken Glass,Annie Lennox,1992,Annie Lennox,4,,253

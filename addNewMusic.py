@@ -1,40 +1,37 @@
 import pandas as pd
 import numpy as np
 
-tm = pd.read_csv("./tableMusic.csv", sep=(","), index_col='id_music')
+tableMusic_df = pd.read_csv("data/tableMusic.csv", sep=(","))
 
-ttl_new_msc = str(input("What's the title of the song? "))
-ttl_new_msc = ttl_new_msc.title()
+def addMusic():
+    title_new_music = str(input("What's the title of the song? ")).title()
+    style_new_music = input("What's the style? ").title()
+    type_new_music = input("What's the typology? ").title()
+    songwriter_new_music = input("What's the songwriter name? ").title()
+    year_new_music = int(input("what year was the song released? "))
+    artist_new_music = input("Who sings the songs? ").title()
+    rating_global_new_music = int(input("What's the global rating of the song? "))
+    rating_user_new_music = int(input("What's your rating of the song? "))	
 
-stl_new_msc = input("What's the style? ")
-stl_new_msc = stl_new_msc.title()
+    duration_new_music = input("What's the duration of the song? ")
+    duration_new_music = duration_new_music.split(":")
+    minutes = int(duration_new_music[0])
+    seconds = int(duration_new_music[1])
+    duration_new_music = (minutes*60)+seconds
 
-tp_new_msc = input("What's the typology? ")
-tp_new_msc = tp_new_msc.title()
+    id_new_music = tableMusic_df.index.max() + 1 #id_music vai de 1 até x o index do pandas vai de 0 até x -1
+    id_new_music = int(id_new_music)
 
-songwritter_new_msc = input("What's the songwritter name? ")	
-songwritter_new_msc = songwritter_new_msc.title()
+    new_music_line = {'style': style_new_music, 'type': type_new_music, 'title': title_new_music, 'songwriter': songwriter_new_music, 'year': year_new_music, 'artist': artist_new_music, 'rating_global': rating_global_new_music,  'rating_user':rating_user_new_music, 'duration': duration_new_music, 'id_music' : id_new_music}
 
-year_new_msc = int(input("what year was the song released? "))
+    newMusic = tableMusic_df.append(new_music_line, ignore_index=True)
 
-art_new_msc = input("Who sings the songs? ")	
-art_new_msc = art_new_msc.title()
+    add_to_table = addMusic()
+    newTable = add_to_table.set_index('id_music') #exportar com o index na coluna 'id_music'
 
-rt_global_new_msc = int(input("What's the global rating of the song? "))	
-rt_user_new_msc = int(input("What's your rating of the song? "))	
+    print(newTable) 
+    #newTable.to_csv('./tableMusic.csv')
+    
+    return newTable #tabela já adicionada
 
-drt_new_msc = input("What's the duration of the song? ")
-drt_new_msc = drt_new_msc.split(":")
-minutes = int(drt_new_msc[0])
-seconds = int(drt_new_msc[1])
-drt_new_msc = (minutes*60)+seconds
-
-def addMusic(stl_new_msc, tp_new_msc, ttl_new_msc, songwritter_new_msc, year_new_msc, art_new_msc, rt_global_new_msc, rt_user_new_msc, drt_new_msc):
-    new_msc_line = {'style': stl_new_msc, 'type': tp_new_msc, 'title': ttl_new_msc, 'songwritter': songwritter_new_msc, 'year': year_new_msc, 'artist': art_new_msc, 'rating_global': rt_global_new_msc,  'rating_user':rt_user_new_msc, 'duration': drt_new_msc}
-
-    newMusic = tm.append(new_msc_line, ignore_index=True)
-    return newMusic
-
-music_to_add = addMusic(stl_new_msc, tp_new_msc, ttl_new_msc, songwritter_new_msc, year_new_msc, art_new_msc, rt_global_new_msc, rt_user_new_msc, drt_new_msc)
-
-print(music_to_add)
+addMusic()

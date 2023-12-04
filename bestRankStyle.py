@@ -10,6 +10,4 @@ def getSongsOfStyle(tableMusic, style):
 def rankingStyle(songs):
     bestSongs = songs[songs["rating_global"] > 3] 
     return bestSongs.sort_values("rating_global", ascending=False)
-           
 
- 
