@@ -6,7 +6,8 @@ import os.path
 
 filtered_songs = pd.read_csv('data/tableMusic.csv')
 
-filter_list = ["style", "songwriter", "type", "artist"]
+# filter_list = ["year", "style", "songwriter", "type", "artist"]
+filter_list = ["artist", "style", "songwriter", "type"]
 
 # create list of all elements of given category used to create menu
 def category_list(category):
@@ -22,9 +23,10 @@ def filterSongs(theFilter):
     while picked_filter == 0:
         try:
             picked_filter = filter[int(input())-1]
+            print(picked_filter)
             print("The " + theFilter + " picked was " + picked_filter + "\n")
             filtered_songs.set_index(theFilter, inplace = True)
-            return filtered_songs.loc[picked_filter]
+            return filtered_songs.loc[[picked_filter]]
         except Exception as e:
             picked_filter = 0
             print("Invalid choice.\n")
