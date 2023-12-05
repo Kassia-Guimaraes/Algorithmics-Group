@@ -10,7 +10,6 @@ filter_list = ["year", "artist", "style", "type"]
 # create list of all elements of given category used to create menu
 def category_list(category):
     try:
-        print(filtered_songs)
         # print(filtered_songs.loc[:, category])
         return (list(filtered_songs.loc[:, category].drop_duplicates()))
     except:
@@ -20,11 +19,10 @@ def category_list(category):
 # retrieve the songs with a given filter
 def filterSongs(theFilter):
     picked_filter = 0
-    filtered_songs = pd.read_csv('data/tableMusic.csv')
     while picked_filter == 0:
         try:
             filtered_songs.set_index(theFilter, inplace = True)
-            return filtered_songs.loc[[filter[int(input("=> "))-1]]]
+            return filtered_songs.loc[[filter[int(input(" => "))-1]]]
         except:
             picked_filter = 0
             print("Invalid choice.\n")
