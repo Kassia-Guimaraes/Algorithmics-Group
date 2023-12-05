@@ -1,4 +1,3 @@
-from numpy import empty
 import pandas as pd
 import os.path
 
@@ -6,12 +5,12 @@ import os.path
 
 filtered_songs = pd.read_csv('data/tableMusic.csv')
 
-# filter_list = ["year", "style", "songwriter", "type", "artist"]
-filter_list = ["artist", "style", "songwriter", "type"]
+filter_list = ["type", "songwriter", "artist", "style"]
 
 # create list of all elements of given category used to create menu
 def category_list(category):
     try:
+        print(filtered_songs)
         # print(filtered_songs.loc[:, category])
         return (list(filtered_songs.loc[:, category].astype(str).drop_duplicates()))
     except:
@@ -20,13 +19,13 @@ def category_list(category):
 # retrieve the songs with a given filter
 def filterSongs(theFilter):
     picked_filter = 0
+    filtered_songs = pd.read_csv('data/tableMusic.csv')
     while picked_filter == 0:
         try:
             picked_filter = filter[int(input())-1]
-            print(picked_filter)
             print("The " + theFilter + " picked was " + picked_filter + "\n")
             filtered_songs.set_index(theFilter, inplace = True)
-            return filtered_songs.loc[[picked_filter]]
+            return filtered_songs.loc[picked_filter]
         except Exception as e:
             picked_filter = 0
             print("Invalid choice.\n")
@@ -45,6 +44,7 @@ for i in range(0, len(filter_list), 1):
     try:
         filter = category_list(filter_list[i])
         print(filter)
+
         filter_menu(filter_list[i])
         filtered_songs = filterSongs(filter_list[i])
 
@@ -55,6 +55,6 @@ for i in range(0, len(filter_list), 1):
         #     filter_menu(filter_list[i])
         #     filtered_songs = filterSongs(filter_list[i])
     except Exception as e:
-        print("Exception")
+        print("")
 
 print(filtered_songs)

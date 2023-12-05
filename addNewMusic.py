@@ -19,19 +19,22 @@ def addMusic():
     seconds = int(duration_new_music[1])
     duration_new_music = (minutes*60)+seconds
 
-    id_new_music = tableMusic_df.index.max() + 1 #id_music vai de 1 até x o index do pandas vai de 0 até x -1
+    id_new_music = tableMusic_df.index.max() + 2  # id_music goes from 1 to x, the pandas index goes from 0 to x -1
     id_new_music = int(id_new_music)
 
-    new_music_line = {'style': style_new_music, 'type': type_new_music, 'title': title_new_music, 'songwriter': songwriter_new_music, 'year': year_new_music, 'artist': artist_new_music, 'rating_global': rating_global_new_music,  'rating_user':rating_user_new_music, 'duration': duration_new_music, 'id_music' : id_new_music}
+    new_music_line_dict = {'style': style_new_music, 'type': type_new_music, 'title': title_new_music,'songwriter': songwriter_new_music, 'year': year_new_music, 'artist': artist_new_music,'rating_global': rating_global_new_music, 'rating_user': rating_user_new_music, 'duration': duration_new_music, 'id_music': id_new_music}
 
-    newMusic = tableMusic_df.append(new_music_line, ignore_index=True)
+    # Convert the dictionary to a DataFrame
+    new_music_line = pd.DataFrame([new_music_line_dict], index=[id_new_music])  # Explicitly provide the index
 
-    add_to_table = addMusic()
-    newTable = add_to_table.set_index('id_music') #exportar com o index na coluna 'id_music'
+    # Replace append() with concat()
+    new_music = pd.concat([tableMusic_df, new_music_line], ignore_index=False)
 
-    print(newTable) 
-    #newTable.to_csv('./tableMusic.csv')
-    
-    return newTable #tabela já adicionada
+    newTable = new_music.set_index('id_music')  # Export with the index in the 'id_music' column
+
+    print(newTable)
+    # newTable.to_csv('./tableMusic.csv')  # Uncomment to save the updated DataFrame
+
+    return newTable  # Updated DataFrame
 
 addMusic()

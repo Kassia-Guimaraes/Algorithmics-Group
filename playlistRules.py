@@ -1,50 +1,58 @@
 import pandas as pd
+from dataBase import get_new_id #generate id fuc
 
 tm = pd.read_csv("data/tableMusic.csv", sep=(","))
 
-def create_play(name_playlist):
+def create_play():
     while True:
-        music_rating_max = tm[(tm['rating_global'] > 4)].sample(10) #10 songs rt > 4
-        music_rating_min = tm[(tm['rating_global'] <= 4)].sample(5) #5 songs rt <= 4
+        music_rating_max = tm[(tm['rating_global'] > 4)].sample(10) # 10 songs with rating > 4
+        music_rating_min = tm[(tm['rating_global'] <= 4)].sample(5) # 5 songs with rating <= 4
 
         playlist = pd.concat([music_rating_max, music_rating_min])
-        duration_total = playlist['duration'].sum() #duração total da playlist
+        duration_total = playlist['duration'].sum() # total playlist duration
 
-        if duration_total <= 3600: #duração total deve ser <= 60 minutos, 3600 segundos
+        if duration_total <= 3600: # total duration <= 60 minutes, 3600 seconds
             break
 
-    playlist['id_playlist'] = name_playlist
-    return playlist #retorna o nome da playlist 
+    return playlist # return the playlist DataFrame
 
-created_playlists = []  # guarda todas as playlists criadas
+created_playlists = []  # store all created playlists
 
 # Main
-count_playlist = 0
 while True:
-    flag = input("Deseja criar uma nova playlist automática? (S/N) ").strip().lower()
+    flag = input("Do you want to create a new automatic playlist? (Y/N) ").strip().lower()
 
-    if flag != 's':
+    if flag != 'y':
         break
 
-    count_playlist += 1
-    name_playlist = f'play_auto_{count_playlist}' #salva como play_auto e o número da playlist
+    new_playlist_id = get_new_id()  # get a new unique playlist ID
+    name_playlist = f'play_auto_{new_playlist_id}'  # save as play_auto and the playlist number
 
-    play_auto = create_play(name_playlist)
-    created_playlists.append(play_auto)
+    play_auto = create_play()
+    play_auto['id_playlist'] = name_playlist  # assign the playlist ID
+
+    created_playlists.append(play_auto) # add new playlist_auto to the list
 
     count_style = play_auto['style'].value_counts()
 
-    # Adiciona a coluna 'duration_playlist' ao DataFrame
-    play_auto['duration_playlist'] = play_auto['duration'].sum()
-
-    print(f"Playlist '{name_playlist}' criada com sucesso!\nTotal playlist duration: {play_auto['duration_playlist']}")
-    print(play_auto[['title', 'rating_global', 'style', 'year']])
+    # Add the 'duration_playlist' column to the DataFrame
+    duration_playlist = play_auto['duration'].sum()
+    play_auto['duration_playlist'] = duration_playlist
+    
+    print(f"Playlist '{name_playlist}' created successfully!")
+    print(play_auto[['id_music','title', 'rating_global', 'style', 'year']])
     print("\nSongs per style:")
     print(count_style)
+    
+    rating_playlist = float(input("What grade do you give to the playlist (1-5)? ")) #user rating playlist
+    average_rating = "{:.1f}".format(play_auto['rating_global'].mean()) #averange rating songs in playlist
+    id_songs_playlist = list(set(play_auto['id_music']))
 
-# Cria um DataFrame contendo todas as playlists criadas
+    new_playlist_auto = {"id_playlist": name_playlist, "duration_playlist": duration_playlist, "id_music": id_songs_playlist, "rating_playlist": rating_playlist, "average_rating_musics": average_rating}
+
+# Create a DataFrame containing all created playlists
 created_playlists_df = pd.concat(created_playlists, ignore_index=True)
 
-# Imprime o DataFrame com todas as playlists criadas
-print("\nTodas as Playlists Criadas:")
+# Print the DataFrame with all created playlists
+print("\nAll Created Playlists:")
 print(created_playlists_df[['id_playlist', 'id_music', 'title', 'style', 'type', 'duration', 'duration_playlist']])
