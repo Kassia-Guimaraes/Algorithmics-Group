@@ -15,15 +15,16 @@ def category_list(category, table):
 def filterSongs(theFilter, table, filterArray):
     selection = 0
     selectionArray = []
-    filter_menu(theFilter, filterArray)
 
     # present the same menu while input is invalid
     while selection == 0:
 
         # select multiple elements of a column
         while(selection in range(len(filterArray))):
+            filter_menu(theFilter, filterArray)
+            print(" current selection", selectionArray)
             try:
-                selection = int(input("\033[5m => "))-1
+                selection = int(input("\033[5m press a number => "))-1
                 if selection in range(len(filterArray)):
                     selectionArray.append(filterArray[selection])
                     selectionArray = list(dict.fromkeys(selectionArray))
@@ -31,11 +32,9 @@ def filterSongs(theFilter, table, filterArray):
                     break
             except:
                 break
-            print("current selection", selectionArray)
         if(selection == -1):
-            print(selection)
             table.set_index(theFilter, inplace = True)
-            print("current selection", selectionArray)
+            print(" current selection", selectionArray)
             if selectionArray != []:
                 table = table.loc[selectionArray]
                 print(table)
@@ -44,13 +43,12 @@ def filterSongs(theFilter, table, filterArray):
                 return table
         else:
             selection = 0
-            filter_menu(theFilter, filterArray)
-            print("current selection", selectionArray)
-            print("Invalid choice.\n")
+            print(" Invalid choice.\n")
+            print(" current selection", selectionArray)
 
 # output menu for given filter
 def filter_menu(theArray, theFilter):
-    print("\n" + "\033[1m" + "FILTER " + theArray.upper() + "\n(press a number)" + "\033[0;0m")
+    print("\n" + "\033[1m" + "FILTER " + theArray.upper() + "\033[0;0m")
     for i in range(0, len(theFilter), 1):
         print("\033[1m", str(i+1), "\033[0;0m ", str(theFilter[i]))
     print("\033[1m", "0", "\033[0;0m ", "(next)")
