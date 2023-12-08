@@ -34,7 +34,6 @@ def filterSongs(theFilter, table, filterArray):
                 break
         if(selection == -1):
             table.set_index(theFilter, inplace = True)
-            print(" current selection", selectionArray)
             if selectionArray != []:
                 table = table.loc[selectionArray]
                 print(table)
@@ -44,7 +43,6 @@ def filterSongs(theFilter, table, filterArray):
         else:
             selection = 0
             print(" Invalid choice.\n")
-            print(" current selection", selectionArray)
 
 # output menu for given filter
 def filter_menu(theArray, theFilter):
