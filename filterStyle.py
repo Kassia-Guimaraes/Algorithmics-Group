@@ -24,10 +24,12 @@ def filterSongs(theFilter, table, filterArray):
             filter_menu(theFilter, filterArray)
             print(" current selection", selectionArray)
             try:
-                selection = int(input("\033[5m press a number => "))-1
+                selection = int(input("\033[5m press a number(toggle selection) => "))-1
                 if selection in range(len(filterArray)):
-                    selectionArray.append(filterArray[selection])
-                    selectionArray = list(dict.fromkeys(selectionArray))
+                    if filterArray[selection] in selectionArray:
+                        selectionArray.remove(filterArray[selection])
+                    else:
+                        selectionArray.append(filterArray[selection])
                 else:
                     break
             except:
