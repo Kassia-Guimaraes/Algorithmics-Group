@@ -22,6 +22,10 @@ def filterSongs(theFilter, table, filterArray):
         # select multiple elements of a column
         while(selection in range(len(filterArray))):
             filter_menu(theFilter, filterArray)
+            if(selectionArray == []):
+                print("\033[1m", "0", "\033[0;0m ", "(select all)")
+            else:
+                print("\033[1m", "0", "\033[0;0m ", "(next)")
             print(" current selection", selectionArray)
             try:
                 selection = int(input("\033[5m press a number(toggle selection) => "))-1
@@ -51,7 +55,7 @@ def filter_menu(theArray, theFilter):
     print("\n" + "\033[1m" + "FILTER " + theArray.upper() + "\033[0;0m")
     for i in range(0, len(theFilter), 1):
         print("\033[1m", str(i+1), "\033[0;0m ", str(theFilter[i]))
-    print("\033[1m", "0", "\033[0;0m ", "(next)")
+    # print("\033[1m", "0", "\033[0;0m ", "(next)")
     return len(theFilter)
 
 # "filtersList" is the array of the columns to filter; "table" is the the path to the csv file
