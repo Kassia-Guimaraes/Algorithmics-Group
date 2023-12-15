@@ -67,4 +67,4 @@ def applyFilters(filtersList, table):
             filtered_songs = filterSongs(filtersList[i], filtered_songs, filter)
         except Exception as e:
             print(e)
-    print(filtered_songs)
+    return(filtered_songs)
