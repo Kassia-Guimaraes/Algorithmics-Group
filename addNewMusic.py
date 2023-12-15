@@ -1,11 +1,16 @@
 import pandas as pd
 import numpy as np
+from addStyle import refresh_styles_list, addStyle
 
 tableMusic_df = pd.read_csv("data/tableMusic.csv", sep=(","))
 
 def addMusic():
     title_new_music = str(input("What's the title of the song? ")).title()
+
+    styles_list = refresh_styles_list
+    print("What's the style?\n", styles_list)
     style_new_music = input("What's the style? ").title()
+
     type_new_music = input("What's the typology? ").title()
     songwriter_new_music = input("What's the songwriter name? ").title()
     year_new_music = int(input("what year was the song released? "))
@@ -32,7 +37,7 @@ def addMusic():
 
     newTable = new_music.set_index('id_music')  # Export with the index in the 'id_music' column
 
-    print(newTable)
+    print(newTable[['id_music', 'title', 'artist','style','duration']].to_markdown(index=False))
     # newTable.to_csv('./tableMusic.csv')  # Uncomment to save the updated DataFrame
 
     return newTable  # Updated DataFrame

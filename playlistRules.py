@@ -19,6 +19,8 @@ def create_play():
 created_playlists = []  # store all created playlists
 
 # Main
+pd.set_option('display.max_colwidth', 5)
+
 while True:
     flag = input("Do you want to create a new automatic playlist? (Y/N) ").strip().lower()
 
@@ -40,7 +42,7 @@ while True:
     play_auto['duration_playlist'] = duration_playlist
     
     print(f"Playlist '{name_playlist}' created successfully!")
-    print(play_auto[['id_music','title', 'rating_global', 'style', 'year']])
+    print(play_auto[['id_music','title', 'rating_global', 'style', 'year']].to_markdown(index=False))
     print("\nSongs per style:")
     print(count_style)
     
@@ -55,4 +57,4 @@ created_playlists_df = pd.concat(created_playlists, ignore_index=True)
 
 # Print the DataFrame with all created playlists
 print("\nAll Created Playlists:")
-print(created_playlists_df[['id_playlist', 'id_music', 'title', 'style', 'type', 'duration', 'duration_playlist']])
+print(created_playlists_df[['id_playlist', 'id_music', 'title', 'style', 'duration', 'duration_playlist']].to_markdown(index=False))
