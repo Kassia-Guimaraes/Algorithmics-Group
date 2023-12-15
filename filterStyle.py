@@ -1,5 +1,4 @@
 import pandas as pd
-import os.path
 
 # pd.set_option('display.max_columns', 1000)
 
@@ -69,6 +68,3 @@ def applyFilters(filtersList, table):
         except Exception as e:
             print(e)
     print(filtered_songs)
-
-# only "applyFilters" needs to be called
-applyFilters(['artist', 'year', 'songwriter', 'type', 'style'], 'data/tableMusic.csv')
