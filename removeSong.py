@@ -6,7 +6,7 @@ def removeSongDataBase(tableMusic, playlists, id):
        tableMusic.drop(tableMusic[tableMusic["id_music"] == id].index,inplace=True)
        playlists.drop(playlists[playlists["id_music"] == id].index, inplace = True)
        tableMusic.to_csv("tableMusic.csv",index=False)
-       playlists.to_csv("playlist.csv",index=False)     
+       playlists.to_csv("data\\playlist.csv",index=False)     
     else : 
         print("This song does not exist in our system. Please chose a valid option:")
         
@@ -24,7 +24,7 @@ def removeSongPlaylist(playlists, playListName, id):
         removeIndex = playlists[playListMatch & idMatch].index
         #removes from playLists dataframe the specified song of the specified playlist
         playlists.drop(removeIndex, inplace = True)
-        playlists.to_csv("playlist.csv",index = False)     
+        playlists.to_csv("data\\playlist.csv",index = False)     
     else : 
         print("The chosen playlist doesnt exist or the song is not in the playlist. Please chose a valid option:")
 
