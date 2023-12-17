@@ -33,13 +33,11 @@ def addMusic():
     new_music_line = pd.DataFrame([new_music_line_dict], index=[id_new_music])  # Explicitly provide the index
 
     # Replace append() with concat()
-    new_music = pd.concat([tableMusic_df, new_music_line], ignore_index=False)
+    newMusic = pd.concat([tableMusic_df, new_music_line], ignore_index=False)
 
-    newTable = new_music.set_index('id_music')  # Export with the index in the 'id_music' column
-
-    print(newTable[['id_music', 'title', 'artist','style','duration']].to_markdown(index=False))
+    print(newMusic[['id_music', 'title', 'artist','style','duration']].to_markdown(index=False))
     # newTable.to_csv('./tableMusic.csv')  # Uncomment to save the updated DataFrame
 
-    return newTable  # Updated DataFrame
+    return newMusic  # Updated DataFrame
 
 addMusic()
