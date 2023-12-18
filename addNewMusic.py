@@ -16,7 +16,7 @@ def addMusic():
     year_new_music = int(input("what year was the song released? "))
     artist_new_music = input("Who sings the songs? ").title()
     rating_global_new_music = int(input("What's the global rating of the song? "))
-    rating_user_new_music = int(input("What's your rating of the song? "))	
+    rating_user_new_music = int(input("What's your rating of the song? "))
 
     duration_new_music = input("What's the duration of the song? ")
     duration_new_music = duration_new_music.split(":")

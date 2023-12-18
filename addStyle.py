@@ -26,6 +26,7 @@ def addStyle():
         # create/update styles.csv with the new style
         styles_Df.to_csv('styles.csv', index=False, na_rep="NAN!")
         print(f"The style {new_Style} was added successfully!")
+    return new_Style
 
 if __name__ == "__main__":
     addStyle()
