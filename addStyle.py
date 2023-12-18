@@ -15,8 +15,7 @@ styles = refresh_styles_list()
 
 def addStyle():
     print("Current styles: " + ', '.join(styles))
-    print("What new style would you like to add?\nPress 0 to cancel")
-    new_Style = (input())
+    new_Style = (input("What new style would you like to add?\nPress 0 to cancel\n=> "))
     if new_Style == "0":
         print("Operation cancelled")
     else:
@@ -26,6 +25,7 @@ def addStyle():
         # create/update styles.csv with the new style
         styles_Df.to_csv('styles.csv', index=False, na_rep="NAN!")
         print(f"The style {new_Style} was added successfully!")
+    return new_Style
 
 if __name__ == "__main__":
     addStyle()

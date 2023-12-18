@@ -5,15 +5,15 @@ from auxiliarFunctions import getPlaylist
 ### .PY file to test removeSong.py functions ###
 
 #Reads TableMusic and Playlist CSVs into dataframe variables
-tableMusic_df = pd.read_csv('tableMusic.csv')
-playlist_df = pd.read_csv('playlist.csv')
+tableMusic_df = pd.read_csv('data\\tableMusic.csv')
+playlist_df = pd.read_csv('data\\playlist.csv')
 
 #Shows all the available songs
 print("These are the songs in the data base: ")
 print(tableMusic_df)
 
 #Testing function that removes a song from the entire database (tableMusic and playlists)
-print("Chose one song to remove from the data base")
+print("Choose one song to remove from the data base")
 songId = input("Enter song id: ")
 songId = int(songId)
 removeSong.removeSongDataBase(tableMusic_df,playlist_df, songId)
