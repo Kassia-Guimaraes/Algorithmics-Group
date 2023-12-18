@@ -15,7 +15,7 @@ def song_style(theFilter):
         else:
             return new_style
     else:
-        return (theFilter[int(choice)])
+        return (theFilter[int(choice)-1])
 
 tableMusic_df = pd.read_csv("data/tableMusic.csv", sep=(","))
 
