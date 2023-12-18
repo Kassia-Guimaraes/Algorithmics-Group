@@ -15,8 +15,7 @@ styles = refresh_styles_list()
 
 def addStyle():
     print("Current styles: " + ', '.join(styles))
-    print("What new style would you like to add?\nPress 0 to cancel")
-    new_Style = (input())
+    new_Style = (input("What new style would you like to add?\nPress 0 to cancel\n=> "))
     if new_Style == "0":
         print("Operation cancelled")
     else:
