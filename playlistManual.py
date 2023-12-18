@@ -10,7 +10,6 @@ def get_user_filters(df): #df = tablemusic_df
         print("Available columns:")
         for i, column in enumerate(available_columns, start=1): #menu starts in 1
             print("\033[1m", i, "\033[0;0m ", column)
-
         print("\033[1m", "0", "\033[0;0m ", "(next)")
 
         try:
@@ -24,7 +23,7 @@ def get_user_filters(df): #df = tablemusic_df
                 print(f"Selected column: {filter_list}\n")
             else:
                 print("Invalid choice. Please enter a valid number.")
-        except ValueError:
+        except ValueError:  
             print("Invalid choice. Please enter a number.")
 
     print("Selected filters:", filter_list)

@@ -17,7 +17,6 @@ def automatic_playlist(): #automatic playlist
     return playlist_df # return the playlist DataFrame
 
 # Main
-pd.set_option('display.max_colwidth', 5)
 
 def created_playlists():
     created_playlists = []  # store all created playlists
@@ -40,15 +39,17 @@ def created_playlists():
         # Add the 'duration_playlist' column to the DataFrame
         duration_playlist = play_auto['duration'].sum()
         play_auto['duration_playlist'] = duration_playlist
+
+        average_rating = "{:.1f}".format(play_auto['rating_global'].mean()) #averange rating songs in playlist
+        id_songs_playlist = list(set(play_auto['id_music'])) #list id songs present in playlist
     
-        print(f"Playlist '{name_playlist}' created successfully!")
+        print(f"Playlist '{name_playlist}' created successfully!Duration: {duration_playlist}")
         print(play_auto[['id_music','title', 'rating_global', 'style', 'year']].to_markdown(index=False))
+        print(f"\nDuration: {duration_playlist} seconds\nAverage Rating: {average_rating}")
         print("\nSongs per style:")
         print(count_style)
     
         rating_playlist = float(input("What grade do you give to the playlist (1-5)? ")) #user rating playlist
-        average_rating = "{:.1f}".format(play_auto['rating_global'].mean()) #averange rating songs in playlist
-        id_songs_playlist = list(set(play_auto['id_music']))
 
         new_playlist_auto = {"id_playlist": name_playlist, "duration_playlist": duration_playlist, "id_music": id_songs_playlist, "rating_playlist": rating_playlist, "average_rating_musics": average_rating}
 
@@ -58,7 +59,13 @@ def created_playlists():
     return created_playlists_df
 
 created_playlists_df = created_playlists()
+list_ids_playlist = created_playlists_df['id_playlist'].drop_duplicates().tolist()
 
-# Print the DataFrame with all created playlists
+# Print all created playlists
 print("\nAll Created Playlists:")
-print(created_playlists_df[['id_playlist', 'id_music', 'title', 'style', 'duration', 'duration_playlist']].to_markdown(index=False))
+for id_playlist in list_ids_playlist:
+    playlist = created_playlists_df[created_playlists_df["id_playlist"]==id_playlist]
+    duration = created_playlists_df['duration_playlist'].drop_duplicates().tolist()
+
+    print(f"\n\nPlaylist name: {id_playlist}\tDuration: {duration[0]} seconds\n")
+    print(playlist[['id_music', 'title', 'style', 'duration', 'duration_playlist']].to_markdown(index=False))
