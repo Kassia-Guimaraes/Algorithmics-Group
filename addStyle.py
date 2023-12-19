@@ -25,5 +25,3 @@ def addStyle():
         styles_Df.to_csv('data/styles.csv', index=False, na_rep="NAN!")
         print(f"The style {new_Style} was added successfully!")
     return new_Style
-
-addStyle()
