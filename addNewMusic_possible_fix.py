@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from addStyle import refresh_styles_list, addStyle
+from addStyle import *
 
 def song_style(theFilter):
     for i in range(0, len(theFilter), 1):
