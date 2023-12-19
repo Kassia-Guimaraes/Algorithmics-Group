@@ -53,5 +53,3 @@ def addMusic():
     # newTable.to_csv('./tableMusic.csv')  # Uncomment to save the updated DataFrame
 
     return newMusic  # Updated DataFrame
-
-addMusic()
