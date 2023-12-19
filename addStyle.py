@@ -1,6 +1,5 @@
 import pandas as pd
 import os.path
-from pandas.core.internals.blocks import new_block
 
 def refresh_styles_list():
     # read populate styles with the "styles.csv" from previous execution, if it exists
