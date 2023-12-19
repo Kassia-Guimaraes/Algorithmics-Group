@@ -34,11 +34,16 @@ def addRank(playlists):
     currentNumberOfReview = playlistNumberOfReviewColumn[0]
     
     newAverage = addToAverage(currentRank, currentNumberOfReview, userRating)
+    newAverage = round(newAverage,1)
     
     playlists["rating_playlist"].mask(playlists["id_playlist"] == playListName,newAverage,inplace=True)
     playlists["num_ratings"].mask(playlists["id_playlist"] == playListName,currentNumberOfReview+1,inplace=True)
     
-    playlists.to_csv("data\\playlist.csv",index = False)
+    try: 
+        playlists.to_csv("data\\playlist.csv", index = False)  
+    
+    except:
+        return ec.file_open
     
     return ec.successfull_execution
     

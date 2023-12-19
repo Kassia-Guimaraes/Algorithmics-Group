@@ -1,5 +1,6 @@
 import pandas as pd
 #Retrieves all the songs of a certain style
+
 def getSongsOfStyle(tableMusic, style):
     #returns a subset of the dataframe "tableMusic"
     #with the songs of style corresponding to the argument "style"
