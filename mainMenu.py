@@ -1,7 +1,7 @@
 import addNewMusic_possible_fix
 import addStyle
 import filterStyle
-import removeSongMain_possible_fix
+import removeSongMain
 
 main_menu = """
 \033[1m 1 \033[0;0m manage database
@@ -54,7 +54,7 @@ def subMenu_1():
             case("1"):
                 addNewMusic_possible_fix.addMusic()
             case("2"):
-                removeSongMain_possible_fix.removeSongFun()
+                removeSongMain.removeSongFun()
             case("3"):
                 addStyle.addStyle()
             case("4"):
