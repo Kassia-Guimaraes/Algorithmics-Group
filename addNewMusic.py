@@ -1,15 +1,29 @@
 import pandas as pd
 import numpy as np
-from addStyle import refresh_styles_list, addStyle
+from addStyle import *
+
+def song_style(theFilter):
+    for i in range(0, len(theFilter), 1):
+        print("\033[1m", str(i+1), "\033[0;0m ", str(theFilter[i]))
+    # print("\033[1m", "0", "\033[0;0m ", "(next)")
+    print("\033[1m", 0, "\033[0;0m ", "(add new style)")
+    choice = input("What's the style? ")
+    if choice == "0":
+        new_style = addStyle()
+        if new_style == "0":
+            song_style(theFilter)
+        else:
+            return new_style
+    else:
+        return (theFilter[int(choice)-1])
 
 tableMusic_df = pd.read_csv("data/tableMusic.csv", sep=(","))
 
 def addMusic():
     title_new_music = str(input("What's the title of the song? ")).title()
 
-    styles_list = refresh_styles_list
-    print("What's the style?\n", styles_list)
-    style_new_music = input("What's the style? ").title()
+    styles_list = refresh_styles_list()
+    style_new_music = song_style(styles_list)
 
     type_new_music = input("What's the typology? ").title()
     songwriter_new_music = input("What's the songwriter name? ").title()
@@ -36,8 +50,6 @@ def addMusic():
     newMusic = pd.concat([tableMusic_df, new_music_line], ignore_index=False)
 
     print(newMusic[['id_music', 'title', 'artist','style','duration']].to_markdown(index=False))
-    # newTable.to_csv('./tableMusic.csv')  # Uncomment to save the updated DataFrame
+    # newTable.to_csv('data/tableMusic.csv')  # Uncomment to save the updated DataFrame
 
     return newMusic  # Updated DataFrame
-
-addMusic()
