@@ -3,7 +3,7 @@ import random
 
 def list_available_playlists():
     # Load the DataFrame from the playlist table
-    playlist_df = pd.read_csv('playlist.csv', names=['id_playlist', 'duration_playlist', 'id_music', 'rating_playlist', 'average_rating_musics'])
+    playlist_df = pd.read_csv('data/playlist.csv', names=['id_playlist', 'duration_playlist', 'id_music', 'rating_playlist', 'average_rating_musics', 'num_ratings'])
 
     # Display the list of available playlists
     available_playlists = playlist_df['id_playlist'].unique()
@@ -19,7 +19,7 @@ def choose_random_music(tableMusic_df):
 def view_playlist_songs():
     while True:
         # Load the DataFrame from the playlist table
-        playlist_df = pd.read_csv('playlist.csv', names=['id_playlist', 'duration_playlist', 'id_music', 'rating_playlist', 'average_rating_musics'])
+        playlist_df = pd.read_csv('data/playlist.csv', names=['id_playlist', 'duration_playlist', 'id_music', 'rating_playlist', 'average_rating_musics', 'average_rating_musics'])
 
         # Display the list of available playlists
         list_available_playlists()
@@ -41,7 +41,7 @@ def view_playlist_songs():
             songs_ids = selected_playlist['id_music']
 
             # Load the DataFrame from the music table
-            tableMusic_df = pd.read_csv('tableMusic.csv', names=['id_music', 'style', 'type', 'title', 'songwritter', 'year', 'artist', 'rating_global', 'rating_user', 'duration'])
+            tableMusic_df = pd.read_csv('data/tableMusic.csv', names=['id_music', 'style', 'type', 'title', 'songwritter', 'year', 'artist', 'rating_global', 'rating_user', 'duration'])
 
             # Filter the songs from the desired playlist
             songs_info = tableMusic_df[tableMusic_df['id_music'].isin(songs_ids)][['title', 'style', 'year', 'artist', 'rating_global']]
@@ -79,11 +79,3 @@ def view_playlist_songs():
 
 # Call the function to allow the user to choose a playlist and view the songs
 view_playlist_songs()
-
-
-
-
-
-
-
-
