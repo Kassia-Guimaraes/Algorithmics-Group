@@ -13,7 +13,7 @@ def song_rating():
             print("Exiting the application...")
             break
 
-        # Localizar a música com base no título 
+        # Localizar a música com base no título
         song_selected = tableMusic_df.loc[tableMusic_df['title'] == song_input]
 
         # Verificar se a música foi encontrada
@@ -45,6 +45,3 @@ def song_rating():
             print(f"Song '{song_input}' not found. Please try again.")
 
 # Chamar a função para permitir que o usuário avalie uma música
-song_rating()
-
-

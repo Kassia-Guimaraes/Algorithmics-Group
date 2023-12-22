@@ -2,13 +2,16 @@ import addNewMusic_possible_fix
 import addStyle
 import filterStyle
 import removeSongMain
+import musicReview
+import prevalenceMusic
+import rankingPlaylist
 
 main_menu = """
 \033[1m 1 \033[0;0m manage database
 \033[1m 2 \033[0;0m generate random playlist
 \033[1m 3 \033[0;0m create personalized playlist
 \033[1m 4 \033[0;0m create playlist by filters
-\033[1m 5 \033[0;0m play
+\033[1m 5 \033[0;0m quick play
 \033[1m 0 \033[0;0m exit
  =>"""
 
@@ -29,7 +32,9 @@ submenu_2 = """
  => """
 
 submenu_3 = """
-\033[1m 1 \033[0;0m play
+\033[1m 1 \033[0;0m apply filters
+\033[1m 2 \033[0;0m rate song
+\033[1m 3 \033[0;0m add song to playlist
 \033[1m 0 \033[0;0m back
  => """
 
@@ -58,7 +63,7 @@ def subMenu_1():
             case("3"):
                 addStyle.addStyle()
             case("4"):
-                print("NOT ADDED YET") # MOST POPULAR SONGS IN PLAYLISTS
+                prevalenceMusic.songRecurrence()
             case("5"):
                 print("NOT ADDED YET") # HIGHEST RATED SONGS
             case("0"):
@@ -86,6 +91,15 @@ def subMenu_3():
         second_input = input(print(submenu_3))
         match(second_input):
             case("1"):
+                print("NOT ADDED YET") # APPLY FILTERS
+                return
+            case("2"):
+                musicReview.song_rating()
+                return
+            case("3"):
+                print("NOT ADDED YET") # ADD SONG TO PLAYLIST
+                return
+            case("4"):
                 print("NOT ADDED YET") # START PLAYING PLAYLIST
                 return
             case("0"):
@@ -102,7 +116,7 @@ def subMenu_4():
                 print("NOT ADDED YET") # CREATE PLAYLIST BY FILTERS
                 return
             case("2"):
-                print("NOT ADDED YET") # SHOW PLAYLIST RANKINGS
+                rankingPlaylist.playlistsRanking()
                 return
             case("3"):
                 print("NOT ADDED YET") # SHOW PLAYLISTS BY STYLE
