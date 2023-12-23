@@ -51,6 +51,7 @@ submenu_5 = """
 \033[1m 0 \033[0;0m back
  => """
 
+print("WELCOME TO YOUR MUSIC LIBRARY!")
 def subMenu_1():
     second_input = -1
     while second_input != 0:
