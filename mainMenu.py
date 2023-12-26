@@ -19,32 +19,28 @@ main_menu = """
  =>"""
 
 submenu_1 = """
-\033[1m 1 \033[0;0m add new song
-\033[1m 2 \033[0;0m delete song
+\033[1m 1 \033[0;0m add song to database
+\033[1m 2 \033[0;0m delete song from database
 \033[1m 3 \033[0;0m create new music style
-\033[1m 4 \033[0;0m the most popular songs in playlists
+\033[1m 4 \033[0;0m most popular songs in playlists
 \033[1m 5 \033[0;0m highest rated songs
 \033[1m 0 \033[0;0m exit
  => """
 
 submenu_2 = """
-\033[1m 1 \033[0;0m show songs per style
-\033[1m 2 \033[0;0m expand playlist info
-\033[1m 3 \033[0;0m play
+\033[1m 1 \033[0;0m start playback
 \033[1m 0 \033[0;0m back
  => """
 
 submenu_3 = """
-\033[1m 1 \033[0;0m apply filters
-\033[1m 2 \033[0;0m rate song
-\033[1m 3 \033[0;0m add song to playlist
+\033[1m 1 \033[0;0m rate song
+\033[1m 2 \033[0;0m start playback
 \033[1m 0 \033[0;0m back
  => """
 
 submenu_4 = """
-\033[1m 1 \033[0;0m create playlist
+\033[1m 1 \033[0;0m start playback
 \033[1m 2 \033[0;0m show playlist rankings
-\033[1m 3 \033[0;0m show playlists by style
 \033[1m 0 \033[0;0m back
  => """
 
@@ -84,9 +80,8 @@ def subMenu_2():
         second_input = input(submenu_2)
         match(second_input):
             case("1"):
-                print(filterStyle.applyFilters(["style", "band", "year"], "data/tableMusic.csv"))
-            case("2"):
-                print("case 2")
+                print("NOT ADDED YET") # START PLAYING PLAYLIST
+                return
             case("0"):
                 return
             case(_):
@@ -110,16 +105,16 @@ def subMenu_3():
                 subMenu_3()
 
 def subMenu_4():
+    print("NOT ADDED YET") # CREATE PLAYLIST BY FILTERS
     second_input = -1
     while second_input != 0:
         second_input = input(submenu_4)
         match(second_input):
             case("1"):
-                print("NOT ADDED YET") # CREATE PLAYLIST BY FILTERS
+                print("NOT ADDED YET") # START PLAYING PLAYLIST
                 return
             case("2"):
                 rankingPlaylist.playlistsRanking()
-                return
             case("0"):
                 return
             case(_):
