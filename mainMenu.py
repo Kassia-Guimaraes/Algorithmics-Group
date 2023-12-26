@@ -5,6 +5,7 @@ import removeSongMain
 import musicReview
 import prevalenceMusic
 import rankingPlaylist
+import bestRankStyleMain
 
 main_menu = """
 \033[1m 1 \033[0;0m manage database
@@ -68,7 +69,7 @@ def subMenu_1():
             case("4"):
                 prevalenceMusic.songRecurrence()
             case("5"):
-                print("NOT ADDED YET") # HIGHEST RATED SONGS
+                bestRankStyleMain.rankByStyle()
             case("0"):
                 return
             case(_):
@@ -100,7 +101,7 @@ def subMenu_3():
                 musicReview.song_rating()
                 return
             case("3"):
-                print("NOT ADDED YET") # ADD SONG TO PLAYLIST
+                addNewMusic_possible_fix.addMusic()
                 return
             case("4"):
                 print("NOT ADDED YET") # START PLAYING PLAYLIST
