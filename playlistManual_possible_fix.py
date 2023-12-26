@@ -31,6 +31,8 @@ def getUsersFilters(df): #df = tableMusic_df
 
 # "filtersList" is the array of the columns to filter, "loc_df" is the the path to the csv file
 def createPlaylist(filtersList, loc_df):
+    playlist_df = pd.read_csv('data/playlist.csv')
+    tableMusic_df = pd.read_csv("data/tableMusic.csv", sep=',')
     selectedSongs_df = pd.DataFrame()
     filtered_songs_df = applyFilters(filtersList, loc_df) #menu with filters
     name_playlist = input("Enter a name for your playlist: ") #playlist name
@@ -77,7 +79,7 @@ def createPlaylist(filtersList, loc_df):
     return selectedSongs_df #return the playlist
 
 # Main program
-tableMusic_df = pd.read_csv("data/tableMusic.csv", sep=',')
-playlist_df = pd.read_csv('data/playlist.csv')
-filters_list = getUsersFilters(tableMusic_df)
-createPlaylist(filters_list, "data/tableMusic.csv")
+def playlistManualFun():
+    tableMusic_df = pd.read_csv("data/tableMusic.csv", sep=',')
+    filters_list = getUsersFilters(tableMusic_df)
+    createPlaylist(filters_list, "data/tableMusic.csv")

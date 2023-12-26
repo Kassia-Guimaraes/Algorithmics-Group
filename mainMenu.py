@@ -6,6 +6,7 @@ import musicReview
 import prevalenceMusic
 import rankingPlaylist
 import bestRankStyleMain
+import playlistManual_possible_fix
 
 main_menu = """
 \033[1m 1 \033[0;0m manage database
@@ -93,8 +94,10 @@ def subMenu_3():
     second_input = -1
     while second_input != 0:
         second_input = input(print(submenu_3))
+        playlistManual_possible_fix.playlistManualFun()
         match(second_input):
             case("1"):
+
                 print("NOT ADDED YET") # APPLY FILTERS
                 return
             case("2"):
