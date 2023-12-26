@@ -24,7 +24,7 @@ submenu_1 = """
 \033[1m 3 \033[0;0m create new music style
 \033[1m 4 \033[0;0m most popular songs in playlists
 \033[1m 5 \033[0;0m highest rated songs
-\033[1m 0 \033[0;0m exit
+\033[1m 0 \033[0;0m back
  => """
 
 submenu_2 = """
