@@ -7,6 +7,7 @@ import prevalenceMusic
 import rankingPlaylist
 import bestRankStyleMain
 import playlistManual_possible_fix
+import playlistRules_possible_fix
 
 main_menu = """
 \033[1m 1 \033[0;0m manage database
@@ -59,7 +60,7 @@ print("\n",welcome_message.center(40, "#"))
 def subMenu_1():
     second_input = -1
     while second_input != 0:
-        second_input = input(print(submenu_1))
+        second_input = input(submenu_1)
         match(second_input):
             case("1"):
                 addNewMusic_possible_fix.addMusic()
@@ -77,9 +78,10 @@ def subMenu_1():
                 subMenu_1()
 
 def subMenu_2():
+    playlistRules_possible_fix.playlistRulesFun()
     second_input = -1
     while second_input != 0:
-        second_input = input(print(submenu_2))
+        second_input = input(submenu_2)
         match(second_input):
             case("1"):
                 print(filterStyle.applyFilters(["style", "band", "year"], "data/tableMusic.csv"))
@@ -91,22 +93,15 @@ def subMenu_2():
                 subMenu_2()
 
 def subMenu_3():
+    playlistManual_possible_fix.playlistManualFun()
     second_input = -1
     while second_input != 0:
-        second_input = input(print(submenu_3))
-        playlistManual_possible_fix.playlistManualFun()
+        second_input = input(submenu_3)
         match(second_input):
             case("1"):
-
-                print("NOT ADDED YET") # APPLY FILTERS
-                return
-            case("2"):
                 musicReview.song_rating()
                 return
-            case("3"):
-                addNewMusic_possible_fix.addMusic()
-                return
-            case("4"):
+            case("2"):
                 print("NOT ADDED YET") # START PLAYING PLAYLIST
                 return
             case("0"):
@@ -117,16 +112,13 @@ def subMenu_3():
 def subMenu_4():
     second_input = -1
     while second_input != 0:
-        second_input = input(print(submenu_4))
+        second_input = input(submenu_4)
         match(second_input):
             case("1"):
                 print("NOT ADDED YET") # CREATE PLAYLIST BY FILTERS
                 return
             case("2"):
                 rankingPlaylist.playlistsRanking()
-                return
-            case("3"):
-                print("NOT ADDED YET") # SHOW PLAYLISTS BY STYLE
                 return
             case("0"):
                 return
@@ -136,7 +128,7 @@ def subMenu_4():
 def subMenu_5():
     second_input = -1
     while second_input != 0:
-        second_input = input(print(submenu_5))
+        second_input = input(submenu_5)
         match(second_input):
             case("1"):
                 print("NOT ADDED YET") # RANDOM PLAYBACK
@@ -152,7 +144,7 @@ def subMenu_5():
 def mainMenu():
     first_input = -1
     while first_input != 0:
-        first_input = input(print(main_menu))
+        first_input = input(main_menu)
         match(first_input):
             case("1"):
                 subMenu_1()
