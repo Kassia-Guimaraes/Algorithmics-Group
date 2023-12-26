@@ -1,4 +1,4 @@
-import addNewMusic_possible_fix
+import addNewMusic
 import addStyle
 import filterStyle
 import removeSongMain
@@ -7,7 +7,7 @@ import prevalenceMusic
 import rankingPlaylist
 import bestRankStyleMain
 import playlistManual_possible_fix
-import playlistRules_possible_fix
+import playlistRules
 
 main_menu = """
 \033[1m 1 \033[0;0m manage database
@@ -59,7 +59,7 @@ def subMenu_1():
         second_input = input(submenu_1)
         match(second_input):
             case("1"):
-                addNewMusic_possible_fix.addMusic()
+                addNewMusic.addMusic()
             case("2"):
                 removeSongMain.removeSongFun()
             case("3"):
@@ -74,7 +74,7 @@ def subMenu_1():
                 subMenu_1()
 
 def subMenu_2():
-    playlistRules_possible_fix.playlistRulesFun()
+    playlistRules.playlistRulesFun()
     second_input = -1
     while second_input != 0:
         second_input = input(submenu_2)
