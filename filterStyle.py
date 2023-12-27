@@ -44,6 +44,7 @@ def filterSongs(theFilter, table, filterArray):
                 print(table)
                 return table
             else:
+                print(table)
                 return table
         else:
             selection = 0
