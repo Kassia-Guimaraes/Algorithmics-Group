@@ -49,9 +49,9 @@ def createPlaylist(filtersList, loc_df, playlist_title):
                 break
             elif selected_song_id == "": #add new filters
                 new_filters_list = getUsersFilters(tableMusic_df)
-                filtered_songs_df = applyFilters(new_filters_list, loc_df)
+                filtered_songs_df = pd.concat([filtered_songs_df, applyFilters(new_filters_list, loc_df)])
             else:
-                selected_song = tableMusic_df[tableMusic_df['id_music'] == selected_song_id] #select songs per id to add on playlist
+                selected_song = tableMusic_df[tableMusic_df['id_music'] == int(selected_song_id)] #select songs per id to add on playlist
                 selectedSongs_df = pd.concat([selectedSongs_df, selected_song])
 
                 print(f"Added song to the playlist: {playlist_title}\n{selectedSongs_df[['id_music', 'title', 'artist', 'style', 'year']].to_markdown(index=False)}\n")
