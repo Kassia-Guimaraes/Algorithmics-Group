@@ -6,7 +6,7 @@ import musicReview
 import prevalenceMusic
 import rankingPlaylist
 import bestRankStyleMain
-import playlistManual_possible_fix
+import playlistManual
 import playlistRules
 
 main_menu = """
@@ -88,7 +88,7 @@ def subMenu_2():
                 subMenu_2()
 
 def subMenu_3():
-    playlistManual_possible_fix.playlistManualFun()
+    playlistManual.playlistManualFun()
     second_input = -1
     while second_input != 0:
         second_input = input(submenu_3)
