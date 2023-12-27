@@ -5,7 +5,7 @@ import pandas as pd
 # create list of all elements of given category used to create menu
 def category_list(category, table):
     try:
-        return (list(table.loc[:, category].drop_duplicates()))
+        return sorted((list(table.loc[:, category].drop_duplicates())))
     except:
         print("erro")
         return
