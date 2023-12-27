@@ -16,7 +16,7 @@ main_menu = """
 \033[1m 4 \033[0;0m create playlist by filters
 \033[1m 5 \033[0;0m quick play
 \033[1m 0 \033[0;0m exit
- => """
+ (enter a number) => """
 
 submenu_1 = """
 \033[1m 1 \033[0;0m add song to database
@@ -25,30 +25,30 @@ submenu_1 = """
 \033[1m 4 \033[0;0m most popular songs in playlists
 \033[1m 5 \033[0;0m highest rated songs
 \033[1m 0 \033[0;0m back
- => """
+ (enter a number) => """
 
 submenu_2 = """
 \033[1m 1 \033[0;0m start playback
 \033[1m 0 \033[0;0m back
- => """
+ (enter a number) => """
 
 submenu_3 = """
 \033[1m 1 \033[0;0m rate song
 \033[1m 2 \033[0;0m start playback
 \033[1m 0 \033[0;0m back
- => """
+ (enter a number) => """
 
 submenu_4 = """
 \033[1m 1 \033[0;0m start playback
 \033[1m 2 \033[0;0m show playlist rankings
 \033[1m 0 \033[0;0m back
- => """
+ (enter a number) => """
 
 submenu_5 = """
 \033[1m 1 \033[0;0m random
 \033[1m 2 \033[0;0m pick playlist
 \033[1m 0 \033[0;0m back
- => """
+ (enter a number) => """
 
 welcome_message = "WELCOME TO JUKEBOTIFY!"
 print("\n",welcome_message.center(40, "#"))

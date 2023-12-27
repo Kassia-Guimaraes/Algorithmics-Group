@@ -7,8 +7,9 @@ def list_available_playlists():
 
     # Display the list of available playlists
     available_playlists = playlist_df['id_playlist'].unique()
-    print("Available Playlists:")
-    print(available_playlists)
+    print("\033[1m Available Playlists: \033[0;0m")
+    for i in range(1, len(available_playlists), 1):
+        print("\033[1m", i, "\033[0;0m", available_playlists[i])
 
 def choose_random_music(tableMusic_df):
     # Choose a music randomly
@@ -25,11 +26,11 @@ def view_playlist_songs():
         list_available_playlists()
 
         # Ask the user for the playlist name
-        playlist_name = input("Enter the name of the playlist you want to view (or 'exit' to quit): ")
+        playlist_name = input(" pick a playlist (type '0' to quit) => ")
 
         # Check if the user wants to exit
-        if playlist_name.lower() == 'exit':
-            print("Exiting the application...")
+        if playlist_name == '0':
+            print("Quitting...")
             break
 
         # Locate the playlist based on the name
@@ -52,24 +53,25 @@ def view_playlist_songs():
 
             while True:
                 # Ask the user what they want to do
-                option = input("\nDo you want to view the duration of the playlist, its rating, or the song that is playing? (Type 'duration', 'rating', 'play' or 'exit'): ")
+                option = input("""\n\033[1m Available info: \033[0;0m\n\033[1m 1 \033[0;0m duration\n\033[1m 2 \033[0;0m rating\n\033[1m 3 \033[0;0m play\n\033[1m 0 \033[0;0m back\n (enter a number) => """)
 
-                if option.lower() == 'duration':
+
+                if option == '1':
                     # Get information about the playlist
                     playlist_duration = selected_playlist.iloc[0]['duration_playlist']
                     print(f"\nPlaylist Duration: {playlist_duration} minutes")
-                elif option.lower() == 'rating':
+                elif option == '2':
                     # Get information about the playlist
                     playlist_rating = selected_playlist.iloc[0]['rating_playlist']
                     print(f"\nPlaylist Rating: {playlist_rating}")
-                elif option.lower() == 'play':
+                elif option == '3':
                     # Choose a music randomly
                     random_music = choose_random_music(tableMusic_df)
 
                     # Display information about the random music
                     print("\nPlaying song:")
                     print(random_music.to_markdown(index=False))
-                elif option.lower() == 'exit':
+                elif option == '0':
                     print("Returning to the playlist selection...")
                     break
                 else:
@@ -78,4 +80,3 @@ def view_playlist_songs():
             print(f"Playlist '{playlist_name}' not found. Please try again.")
 
 # Call the function to allow the user to choose a playlist and view the songs
-view_playlist_songs()
