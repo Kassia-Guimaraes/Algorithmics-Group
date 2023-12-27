@@ -11,10 +11,8 @@ import playlistRules
 
 main_menu = """
 \033[1m 1 \033[0;0m manage database
-\033[1m 2 \033[0;0m generate random playlist
-\033[1m 3 \033[0;0m create personalized playlist
-\033[1m 4 \033[0;0m create playlist by filters
-\033[1m 5 \033[0;0m quick play
+\033[1m 2 \033[0;0m manage playlists
+\033[1m 3 \033[0;0m quick play
 \033[1m 0 \033[0;0m exit
  (enter a number) => """
 
@@ -28,23 +26,30 @@ submenu_1 = """
  (enter a number) => """
 
 submenu_2 = """
+\033[1m 1 \033[0;0m random playlist
+\033[1m 2 \033[0;0m personalized playlist
+\033[1m 3 \033[0;0m playlist by filters
+\033[1m 0 \033[0;0m back
+ (enter a number) => """
+
+submenu_2_1 = """
 \033[1m 1 \033[0;0m start playback
 \033[1m 0 \033[0;0m back
  (enter a number) => """
 
-submenu_3 = """
+submenu_2_2 = """
 \033[1m 1 \033[0;0m rate song
 \033[1m 2 \033[0;0m start playback
 \033[1m 0 \033[0;0m back
  (enter a number) => """
 
-submenu_4 = """
+submenu_2_3 = """
 \033[1m 1 \033[0;0m start playback
 \033[1m 2 \033[0;0m show playlist rankings
 \033[1m 0 \033[0;0m back
  (enter a number) => """
 
-submenu_5 = """
+submenu_3 = """
 \033[1m 1 \033[0;0m random
 \033[1m 2 \033[0;0m pick playlist
 \033[1m 0 \033[0;0m back
@@ -74,10 +79,27 @@ def subMenu_1():
                 subMenu_1()
 
 def subMenu_2():
-    playlistRules.playlistRulesFun()
     second_input = -1
     while second_input != 0:
         second_input = input(submenu_2)
+        match(second_input):
+            case("1"):
+                subMenu_2_1()
+            case("2"):
+                subMenu_2_2()
+            case("3"):
+                subMenu_2_3()
+            case("0"):
+                return
+            case(_):
+                subMenu_2()
+
+
+def subMenu_2_1():
+    playlistRules.playlistRulesFun()
+    second_input = -1
+    while second_input != 0:
+        second_input = input(submenu_2_1)
         match(second_input):
             case("1"):
                 print("NOT ADDED YET") # START PLAYING PLAYLIST
@@ -85,13 +107,13 @@ def subMenu_2():
             case("0"):
                 return
             case(_):
-                subMenu_2()
+                subMenu_2_1()
 
-def subMenu_3():
+def subMenu_2_2():
     playlistManual.playlistManualFun()
     second_input = -1
     while second_input != 0:
-        second_input = input(submenu_3)
+        second_input = input(submenu_2_2)
         match(second_input):
             case("1"):
                 musicReview.song_rating()
@@ -102,13 +124,13 @@ def subMenu_3():
             case("0"):
                 return
             case(_):
-                subMenu_3()
+                subMenu_2_2()
 
-def subMenu_4():
+def subMenu_2_3():
     print("NOT ADDED YET") # CREATE PLAYLIST BY FILTERS
     second_input = -1
     while second_input != 0:
-        second_input = input(submenu_4)
+        second_input = input(submenu_2_3)
         match(second_input):
             case("1"):
                 print("NOT ADDED YET") # START PLAYING PLAYLIST
@@ -118,12 +140,12 @@ def subMenu_4():
             case("0"):
                 return
             case(_):
-                subMenu_4()
+                subMenu_2_3()
 
-def subMenu_5():
+def subMenu_3():
     second_input = -1
     while second_input != 0:
-        second_input = input(submenu_5)
+        second_input = input(submenu_3)
         match(second_input):
             case("1"):
                 print("NOT ADDED YET") # RANDOM PLAYBACK
@@ -134,7 +156,7 @@ def subMenu_5():
             case("0"):
                 return
             case(_):
-                subMenu_5()
+                subMenu_3()
 
 def mainMenu():
     first_input = -1
@@ -147,10 +169,6 @@ def mainMenu():
                 subMenu_2()
             case("3"):
                 subMenu_3()
-            case("4"):
-                subMenu_4()
-            case("5"):
-                subMenu_5()
             case("0"):
                 return
             case(_):
