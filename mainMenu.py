@@ -16,7 +16,7 @@ main_menu = """
 \033[1m 4 \033[0;0m create playlist by filters
 \033[1m 5 \033[0;0m quick play
 \033[1m 0 \033[0;0m exit
- =>"""
+ => """
 
 submenu_1 = """
 \033[1m 1 \033[0;0m add song to database
