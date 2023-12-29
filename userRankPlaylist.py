@@ -11,10 +11,10 @@ def addRank(playlists):
     #checks if chosen playlist is in playlist file:
     if len(playlist) <= 0 :
         return ec.playlist_not_found
-    
+
 #reset the index from the playlist chosen is needed for the average formula
     playlist.reset_index(inplace = True, drop = True)
-    
+
     print("you chose the playlist: ", playListName)
     #user input
     userRating = input("Rate the chosen playlist (from 1 to 5): ")
@@ -24,15 +24,15 @@ def addRank(playlists):
     except:
         return ec.sintax
     #the values accepted are between 1 and 5
-    if not(userRating > 0 and userRating <= 5): 
+    if not(userRating > 0 and userRating <= 5):
         return ec.invalid_rating
-    
+
     #Get column with the playlist ranking
     playlistRatingColumn = playlist["rating_playlist"]
-    
+
     #Get one element of the column -> ranking of the playlist
     currentRank = playlistRatingColumn[0]
-    
+
     if math.isnan(currentRank):
         currentRank = 0
 
@@ -40,29 +40,26 @@ def addRank(playlists):
     playlistNumberOfReviewColumn = playlist["num_ratings"]
     #This is the current number of ratings before the changes
     currentNumberOfReview = playlistNumberOfReviewColumn[0]
-    
+
     #calculate the average with the informations above.
     newAverage = addToAverage(currentRank, currentNumberOfReview, userRating)
     newAverage = round(newAverage, 1)
-    
+
     # new average after the user rating
     playlists["rating_playlist"][playlists["id_playlist"] == playListName] = newAverage
     # the number of ratings is the last one plus (+) 1 (the user that have already done the rating)
     playlists["num_ratings"][playlists["id_playlist"] == playListName] = currentNumberOfReview+1
-    
+
     #try save in the file, and if not return an error message.
-    try: 
-        playlists.to_csv("data\\playlist.csv", index = False)  
-    
+    try:
+        playlists.to_csv("data/playlist.csv", index = False)
+
     except:
         return ec.file_open
-    
+
     #print the playlist after the changes
     playlist = getPlaylist(playlists, playListName)
     print(playlist)
-    
+
     #error code = 0
     return ec.successfull_execution
-    
-    
-    
