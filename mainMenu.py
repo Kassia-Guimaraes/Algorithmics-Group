@@ -10,6 +10,7 @@ import rankingPlaylist
 import bestRankStyleMain
 import playlistManual
 import playlistRules
+import playlistAddMusic
 
 playlist_df = pd.read_csv('data/playlist.csv')
 tableMusic_df = pd.read_csv('data/tableMusic.csv')
@@ -37,9 +38,9 @@ submenu_1 = """
 submenu_2 = """
 \033[1m J U K E B O T I F Y \033[0;0m
  main menu/\033[1mMANAGE PLAYLISTS \033[0;0m
-\033[1m 1 \033[0;0m randomize playlist
-\033[1m 2 \033[0;0m personalize a playlist
-\033[1m 3 \033[0;0m playlist by filters
+\033[1m 1 \033[0;0m create random playlist
+\033[1m 2 \033[0;0m create personalized a playlist
+\033[1m 3 \033[0;0m edit a playlist
 \033[1m 0 \033[0;0m back
  (enter a number) => """
 
@@ -60,9 +61,10 @@ submenu_2_2 = """
 
 submenu_2_3 = """
 \033[1m J U K E B O T I F Y \033[0;0m
- main menu/manage playlists/\033[1mPLAYLIST BY FILTERS \033[0;0m
-\033[1m 1 \033[0;0m start playback
-\033[1m 2 \033[0;0m show playlist rankings
+ main menu/manage playlists/\033[1mEDIT PLAYLIST \033[0;0m
+\033[1m 1 \033[0;0m expand playlist
+\033[1m 2 \033[0;0m add song to playlist
+\033[1m 3 \033[0;0m remove song from playlist
 \033[1m 0 \033[0;0m back
  (enter a number) => """
 
@@ -146,16 +148,20 @@ def subMenu_2_2():
                 subMenu_2_2()
 
 def subMenu_2_3():
-    print("NOT ADDED YET") # CREATE PLAYLIST BY FILTERS
     second_input = -1
+    playlist_pick = playlistAddMusic.pickPlaylist(playlist_df)
     while second_input != 0:
         second_input = input(submenu_2_3)
         match(second_input):
             case("1"):
-                print("NOT ADDED YET") # START PLAYING PLAYLIST
-                return
+                songs_ids = list(playlist_df.loc[playlist_df['id_playlist'] == playlist_pick,'id_music'])
+                for id in songs_ids:
+                    print(tableMusic_df.loc[tableMusic_df['id_music'] == id])
             case("2"):
-                rankingPlaylist.playlistsRanking()
+                playlistAddMusic.addMusic(playlist_df, tableMusic_df, playlist_pick)
+            case("3"):
+                removeSongMain.removeSongPlaylist(playlist_df,playlist_pick)
+                return
             case("0"):
                 return
             case(_):

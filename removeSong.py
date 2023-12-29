@@ -12,7 +12,7 @@ def removeSongDataBase(tableMusic, playlists, id):
        tableMusic.to_csv("data/tableMusic.csv", index=False)
        playlists.to_csv("data/playlist.csv", index=False)
     else :
-        print("This song does not exist in our system. Please chose a valid option:")
+        print("\033[1m WARNING: \033[0;0mThis song is not in our system. Please chose a valid option => ")
 
 
 def removeSongPlaylist(playlists, playListName, id):
@@ -36,4 +36,5 @@ def removeSongPlaylist(playlists, playListName, id):
         except:
             return ec.file_open
     else :
-        print("The chosen playlist doesnt exist or the song is not in the playlist. Please chose a valid option:")
+        print("\033[1m WARNING: \033[0;0mNonexistent song/playlist. Please chose a valid option => ")
+        removeFromPlaylist(playlists, playListName)

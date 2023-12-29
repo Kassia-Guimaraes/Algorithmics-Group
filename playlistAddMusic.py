@@ -2,14 +2,21 @@ import pandas as pd
 import errorCodes as ec
 import auxiliarFunctions as af
 
-# the specific function addMusic, add a music from the data base to a playlist
-def addMusic(playlists, songDataBase):
+# menu to pick a playlist from a selection
+def pickPlaylist(playlist_csv):
+    playlists_list = sorted(list(playlist_csv['id_playlist'].drop_duplicates()))
+    playListName = ""
+    while playListName not in playlists_list:
+        print("\033[1m AVAILABLE PLAYLISTS \033[0;0m")
+        for id in playlists_list:
+            print(" ", id)
+        playListName = input(" Enter a playlist name => ")
+    return playListName
 
-    playlists_list = sorted(list(playlists['id_playlist'].drop_duplicates()))
-    print("\033[1m AVAILABLE PLAYLISTS \033[0;0m")
-    for id in playlists_list:
-        print(" ", id)
-    playListName = input(" Enter a playlist name => ")
+# the specific function addMusic, add a music from the data base to a playlist
+def addMusic(playlists, songDataBase, playlist):
+
+    playListName = playlist
 
     #checks if chosen playlist is in playlist file:
     playlist = af.getPlaylist(playlists, playListName)
@@ -17,7 +24,7 @@ def addMusic(playlists, songDataBase):
     playlist.reset_index(inplace = True, drop = True)
     #variable takes the size of the playlist
     numSongs = len(playlist)
-    #if it's empyte the condition will return an error
+    #if it's empty the condition will return an error
     if numSongs <= 0 :
         return ec.playlist_not_found
 
@@ -66,6 +73,3 @@ def addMusic(playlists, songDataBase):
         return ec.file_open
 
     return ec.successfull_execution
-playlist_df = pd.read_csv('data/playlist.csv')
-tableMusic_df = pd.read_csv('data/tableMusic.csv')
-addMusic(playlist_df,tableMusic_df)
