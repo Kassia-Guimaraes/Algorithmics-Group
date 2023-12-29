@@ -15,13 +15,18 @@ playlist_df = pd.read_csv('data/playlist.csv')
 tableMusic_df = pd.read_csv('data/tableMusic.csv')
 
 main_menu = """
-\033[1m J U K E B O T I F Y \033[0;0m
-\033[1m MAIN MENU \033[0;0m
-\033[1m 1 \033[0;0m manage database
-\033[1m 2 \033[0;0m manage playlists
-\033[1m 3 \033[0;0m quick play
-\033[1m 0 \033[0;0m exit Jukebotify
- (enter a number) => """
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+\033[94m                       J U K E B O T I F Y      \033[0;0m
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+        \033[1m MAIN MENU \033[0;0m
+======================================================================
+\033[1m┇ 1️⃣ \033[0;0m music management                                                 ┇
+\033[1m┇ 2️⃣ \033[0;0m playlists management                                             ┇
+\033[1m┇ 3️⃣ \033[0;0m quick play                                                       ┇
+\033[1m┇ 0️⃣ \033[0;0m exit Jukebotify                                                  ┇
+======================================================================
+🎵  Please select the option by number 🎵 >>> """
 
 submenu_1 = """
 \033[1m J U K E B O T I F Y \033[0;0m
@@ -74,8 +79,36 @@ submenu_3 = """
 \033[1m 0 \033[0;0m back
  (enter a number) => """
 
-welcome_message = " WELCOME TO JUKEBOTIFY! "
-print("\n",welcome_message.center(40, "#"))
+from colorama import Fore, Style
+
+def welcome_message():
+    print(Fore.WHITE)
+    print("╔══════════════════════════════════════════════════════════════════════╗")
+    print("║                                                                      ║")
+    print(Fore.BLUE + Style.BRIGHT +"║                       J U K E B O T I F Y                            ║"+ Style.RESET_ALL)
+    print("║                                                                      ║")
+    print("║                🎶 Bringing Your Tunes to Life 🎶                     ║")
+    print("║                                                                      ║")
+    print("║  Hello there! Welcome to Jukebotify, your ultimate music companion.  ║")
+    print("║                                                                      ║")
+    print("║  Whether you're into pop, jazz, rock any other style...              ║")
+    print("║  ... we've got you covered!                                          ║")
+    print("║                                                                      ║")
+    print("║  Explore a world of music management, automatic playlist generation, ║")
+    print("║  and personalized playlists based on your tastes.                    ║")
+    print("║  With Jukebotify, you're in control of your musical journey.         ║")
+    print("║                                                                      ║")
+    print("║  Get ready to dive into the rhythm and let Jukebotify curate the     ║")
+    print("║  perfect playlists for every moment.                                 ║")
+    print("║                                                                      ║")
+    print("║  Let the music play!                                                 ║")
+    print("║                                                                      ║")
+    print("╚══════════════════════════════════════════════════════════════════════╝")
+    print(Style.RESET_ALL)
+
+# Chame a função para exibir a mensagem de boas-vindas
+welcome_message()
+
 
 def subMenu_1():
     second_input = -1
