@@ -8,14 +8,14 @@ def getUsersFilters(df): #df = tableMusic_df
     filterList = []
 
     while True:
-        print("Available filters:")
+        print(" Available filters:")
         for i, column in enumerate(available_columns, start=1): #menu starts in 1
             print("\033[1m", i, "\033[0;0m ", column)
         print("\033[1m", "0", "\033[0;0m ", "(next)")
 
         try:
-            print(f"Current selection: {filterList}\n")
-            choice = int(input("Choose a filter: "))
+            print(f" current selection: {filterList}\n")
+            choice = int(input(" Choose a filter: "))
 
             if choice == 0: #next
                 break
@@ -28,7 +28,7 @@ def getUsersFilters(df): #df = tableMusic_df
         except ValueError:
             print("Invalid choice. Please enter a number.")
 
-    print("Selected filters:", filterList)
+    print(" selected filters:", filterList)
     return filterList #return array with filters, used on apllyFilters
 
 # "filtersList" is the array of the columns to filter, "loc_df" is the the path to the csv file
@@ -42,7 +42,7 @@ def createPlaylist(filtersList, loc_df, playlist_title):
 
     while True:
         try:
-            selected_song_id = input(" Add song to " + playlist_title + "(0 to finish, ENTER to reset filters): ")
+            selected_song_id = input(" Pick the id of the song add to " + playlist_title + "(0 to finish, ENTER to reset filters): ")
 
             if selected_song_id == "0":
                 break
