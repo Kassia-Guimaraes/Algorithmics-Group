@@ -1,3 +1,5 @@
+import pandas as pd
+
 import addNewMusic
 import addStyle
 import filterStyle
@@ -8,6 +10,9 @@ import rankingPlaylist
 import bestRankStyleMain
 import playlistManual
 import playlistRules
+
+playlist_df = pd.read_csv('data/playlist.csv')
+tableMusic_df = pd.read_csv('data/tableMusic.csv')
 
 main_menu = """
 \033[1m J U K E B O T I F Y \033[0;0m
@@ -80,7 +85,7 @@ def subMenu_1():
             case("1"):
                 addNewMusic.addMusic()
             case("2"):
-                removeSongMain.removeSongFun()
+                removeSongMain.removeSongDatabase()
             case("3"):
                 addStyle.addStyle()
             case("4"):
@@ -130,7 +135,7 @@ def subMenu_2_2():
         second_input = input(submenu_2_2)
         match(second_input):
             case("1"):
-                musicReview.song_rating()
+                musicReview.song_rating(tableMusic_df)
                 return
             case("2"):
                 print("NOT ADDED YET") # START PLAYING PLAYLIST
