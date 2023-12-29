@@ -37,20 +37,21 @@ def createPlaylist(filtersList, loc_df, playlist_title):
     tableMusic_df = pd.read_csv("data/tableMusic.csv", sep=',')
     selectedSongs_df = pd.DataFrame()
     filtered_songs_df = applyFilters(filtersList, loc_df) #menu with filters
-    #name_playlist = input("Enter a name for your playlist: ") #playlist name
 
     add_playlist_df = pd.DataFrame()
 
     while True:
         try:
-            selected_song_id = input(" Add song to " + playlist_title + "(0 to finish, ENTER to pick more songs): ")
+            selected_song_id = input(" Add song to " + playlist_title + "(0 to finish, ENTER to reset filters): ")
 
             if selected_song_id == "0":
                 break
             elif selected_song_id == "": #add new filters
+
                 new_filters_list = getUsersFilters(tableMusic_df)
                 new_filtered_songs_df = applyFilters(new_filters_list, loc_df)
-                filtered_songs_df = pd.concat([filtered_songs_df, new_filtered_songs_df])
+                continue
+
             else:
                 selected_song = tableMusic_df[tableMusic_df['id_music'] == int(selected_song_id)] #select songs per id to add on playlist
                 selectedSongs_df = pd.concat([selectedSongs_df, selected_song])
@@ -60,30 +61,33 @@ def createPlaylist(filtersList, loc_df, playlist_title):
         except ValueError:
             print("Invalid value. Please enter a valid song ID.")
 
-    duration_playlist = selectedSongs_df['duration'].sum()
-    print(f'Duration Playlist: {duration_playlist}')
+    try:
+        duration_playlist = selectedSongs_df['duration'].sum()
+        print(f'Duration Playlist: {duration_playlist}')
 
-    average_rating = "{:.1f}".format(selectedSongs_df['rating_global'].mean()) #averange rating songs in playlist
+        average_rating = "{:.1f}".format(selectedSongs_df['rating_global'].mean()) #averange rating songs in playlist
 
-    print(f"\nYour Created Playlist: {playlist_title}\t Duration Playlist: {duration_playlist}\n{selectedSongs_df[['id_music', 'title', 'artist', 'style', 'year']].to_markdown(index=False)}")
-    rating_playlist = float(input("What grade do you give to the playlist (1-5)? ")) #user rating playlist
+        print(f"\nYour Created Playlist: {playlist_title}\t Duration Playlist: {duration_playlist}\n{selectedSongs_df[['id_music', 'title', 'artist', 'style', 'year']].to_markdown(index=False)}")
+        rating_playlist = float(input("What grade do you give to the playlist (1-5)? ")) #user rating playlist
 
-    id_songs_playlist = list(set(selectedSongs_df['id_music']))
+        id_songs_playlist = list(set(selectedSongs_df['id_music']))
 
-    for id_songs in id_songs_playlist: #loop for add all songs in csv file
-        add_music = {'id_playlist': playlist_title, 'duration_playlist': duration_playlist,'id_music': id_songs,'rating_playlist': rating_playlist,'average_rating_musics': average_rating}
-        playlist_manual_df = pd.DataFrame([add_music]) #dictionary to dataFrame
-        add_playlist_df = pd.concat([add_playlist_df,playlist_manual_df], ignore_index=True) #concat all songs in only dataframe
+        for id_songs in id_songs_playlist: #loop for add all songs in csv file
+            add_music = {'id_playlist': playlist_title, 'duration_playlist': duration_playlist,'id_music': id_songs,'rating_playlist': rating_playlist,'average_rating_musics': average_rating}
+            playlist_manual_df = pd.DataFrame([add_music]) #dictionary to dataFrame
+            add_playlist_df = pd.concat([add_playlist_df,playlist_manual_df], ignore_index=True) #concat all songs in only dataframe
 
-    new_playlist = pd.concat([playlist_df,add_playlist_df]) #concat the new playlist with rest of playlists
-    new_playlist = new_playlist.set_index('id_playlist')
+        new_playlist = pd.concat([playlist_df,add_playlist_df]) #concat the new playlist with rest of playlists
+        new_playlist = new_playlist.set_index('id_playlist')
 
-    #new_playlist.to_csv('jukebotify/data/playlist.csv') #add in csv file
-    return selectedSongs_df #return the playlist
+        #new_playlist.to_csv('jukebotify/data/playlist.csv') #add in csv file
+        return selectedSongs_df #return the playlist
+    except:
+        print("\033[1m WARNING: \033[0;0mempty playlist")
 
 # Main program
 def playlistManualFun():
-    name_playlist = input("Enter a name for your playlist: ")
+    name_playlist = input(" Enter a name for your playlist: ")
     tableMusic_df = pd.read_csv("data/tableMusic.csv", sep=',')
     filters_list = getUsersFilters(tableMusic_df)
     createPlaylist(filters_list, "data/tableMusic.csv", name_playlist)

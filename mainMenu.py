@@ -10,13 +10,17 @@ import playlistManual
 import playlistRules
 
 main_menu = """
+\033[1m J U K E B O T I F Y \033[0;0m
+\033[1m MAIN MENU \033[0;0m
 \033[1m 1 \033[0;0m manage database
 \033[1m 2 \033[0;0m manage playlists
 \033[1m 3 \033[0;0m quick play
-\033[1m 0 \033[0;0m exit
+\033[1m 0 \033[0;0m exit Jukebotify
  (enter a number) => """
 
 submenu_1 = """
+\033[1m J U K E B O T I F Y \033[0;0m
+ main menu/\033[1mMANAGE DATABASE \033[0;0m
 \033[1m 1 \033[0;0m add song to database
 \033[1m 2 \033[0;0m delete song from database
 \033[1m 3 \033[0;0m create new music style
@@ -26,36 +30,46 @@ submenu_1 = """
  (enter a number) => """
 
 submenu_2 = """
-\033[1m 1 \033[0;0m random playlist
-\033[1m 2 \033[0;0m personalized playlist
+\033[1m J U K E B O T I F Y \033[0;0m
+ main menu/\033[1mMANAGE PLAYLISTS \033[0;0m
+\033[1m 1 \033[0;0m randomize playlist
+\033[1m 2 \033[0;0m personalize a playlist
 \033[1m 3 \033[0;0m playlist by filters
 \033[1m 0 \033[0;0m back
  (enter a number) => """
 
 submenu_2_1 = """
+\033[1m J U K E B O T I F Y \033[0;0m
+ main menu/manage playlists/\033[1mRANDOM PLAYLIST \033[0;0m
 \033[1m 1 \033[0;0m start playback
 \033[1m 0 \033[0;0m back
  (enter a number) => """
 
 submenu_2_2 = """
+\033[1m J U K E B O T I F Y \033[0;0m
+ main menu/manage playlists/\033[1mPERSONALIZED PLAYLIST \033[0;0m
 \033[1m 1 \033[0;0m rate song
 \033[1m 2 \033[0;0m start playback
 \033[1m 0 \033[0;0m back
  (enter a number) => """
 
 submenu_2_3 = """
+\033[1m J U K E B O T I F Y \033[0;0m
+ main menu/manage playlists/\033[1mPLAYLIST BY FILTERS \033[0;0m
 \033[1m 1 \033[0;0m start playback
 \033[1m 2 \033[0;0m show playlist rankings
 \033[1m 0 \033[0;0m back
  (enter a number) => """
 
 submenu_3 = """
+\033[1m J U K E B O T I F Y \033[0;0m
+ main menu\033[1m/QUICK PLAY \033[0;0m
 \033[1m 1 \033[0;0m random
 \033[1m 2 \033[0;0m pick playlist
 \033[1m 0 \033[0;0m back
  (enter a number) => """
 
-welcome_message = "WELCOME TO JUKEBOTIFY!"
+welcome_message = " WELCOME TO JUKEBOTIFY! "
 print("\n",welcome_message.center(40, "#"))
 
 def subMenu_1():

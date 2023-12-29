@@ -21,7 +21,7 @@ def createdPlaylists():
     createdPlaylists = []  # store all created playlists
     add_playlist_df = pd.DataFrame()
     while True:
-        flag = input("Do you want to create a new automatic playlist? (Y/N) ").strip().lower()
+        flag = input(" Do you want to create a new automatic playlist? (Y/N) ").strip().lower()
 
         if flag != 'y':
             break
@@ -68,14 +68,17 @@ def createdPlaylists():
     return createdPlaylists_df
 
 def playlistRulesFun():
-    createdPlaylists_df = createdPlaylists()
-    list_ids_playlist = createdPlaylists_df['id_playlist'].drop_duplicates().tolist()
+    try:
+        createdPlaylists_df = createdPlaylists()
+        list_ids_playlist = createdPlaylists_df['id_playlist'].drop_duplicates().tolist()
 
-    # Print all created playlists
-    print("\nAll Created Playlists:")
-    for id_playlist in list_ids_playlist:
-        playlist = createdPlaylists_df[createdPlaylists_df["id_playlist"]==id_playlist]
-        duration = createdPlaylists_df['duration_playlist'].tolist()
+        # Print all created playlists
+        print("\nAll Created Playlists:")
+        for id_playlist in list_ids_playlist:
+            playlist = createdPlaylists_df[createdPlaylists_df["id_playlist"]==id_playlist]
+            duration = createdPlaylists_df['duration_playlist'].tolist()
 
-        print(f"\n\nPlaylist name: {id_playlist}\tDuration: {duration[0]} seconds\n")
-        print(playlist[['id_music', 'title', 'style', 'duration', 'duration_playlist']].to_markdown(index=False))
+            print(f"\n\nPlaylist name: {id_playlist}\tDuration: {duration[0]} seconds\n")
+            print(playlist[['id_music', 'title', 'style', 'duration', 'duration_playlist']].to_markdown(index=False))
+    except:
+        print("\033[1m WARNING: \033[0;0mno playlist created")
