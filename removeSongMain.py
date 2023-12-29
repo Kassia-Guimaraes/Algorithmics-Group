@@ -1,5 +1,4 @@
 import pandas as pd
-import removeSong
 from auxiliarFunctions import getPlaylist
 from auxiliarFunctions import getPlaylist
 import errorCodes as ec
@@ -20,7 +19,7 @@ def removeSongDatabase():
     print("Choose one song to remove from the data base")
     songId = input(" Enter song id => ")
     try:
-        removeSong.removeSongDataBase(tableMusic_df, playlist_df, int(songId))
+        removeSongDataBase(tableMusic_df, playlist_df, int(songId))
     except:
         print("\033[1m WARNING: \033[0;0minvalid input")
         removeSongDatabase()
