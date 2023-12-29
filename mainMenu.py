@@ -65,6 +65,8 @@ submenu_2_3 = """
 \033[1m 1 \033[0;0m expand playlist
 \033[1m 2 \033[0;0m add song to playlist
 \033[1m 3 \033[0;0m remove song from playlist
+\033[1m 4 \033[0;0m review playlist
+\033[1m 5 \033[0;0m pick another playlist
 \033[1m 0 \033[0;0m back
  (enter a number) => """
 
@@ -162,6 +164,10 @@ def subMenu_2_3():
             case("3"):
                 removeSongMain.removeSongPlaylist(playlist_df,playlist_pick)
                 return
+            case("4"):
+                print("not added") # REVIEW PLAYLIST
+            case("5"):
+                subMenu_2_3()
             case("0"):
                 return
             case(_):
