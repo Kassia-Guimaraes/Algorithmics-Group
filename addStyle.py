@@ -12,15 +12,15 @@ def refresh_styles_list():
 
 def addStyle():
     styles = refresh_styles_list()
-    print("Current styles: " + ', '.join(styles))
-    new_Style = (input("What new style would you like to add?\nPress 0 to cancel\n=> "))
+    print(" Current styles: " + ', '.join(styles))
+    new_Style = (input(" What new style would you like to add?\nPress 0 to cancel\n=> "))
     if new_Style == "0":
-        print("Operation cancelled")
+        print(" Operation cancelled")
     else:
         print(styles)
         styles.append(new_Style)
         styles_Df = pd.DataFrame(styles)
         # create/update styles.csv with the new style
         styles_Df.to_csv('data/styles.csv', index=False, na_rep="NAN!")
-        print(f"The style {new_Style} was added successfully!")
+        print(f" The style {new_Style} was added successfully!")
     return new_Style
