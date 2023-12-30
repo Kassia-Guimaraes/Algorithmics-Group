@@ -3,8 +3,6 @@ from auxiliarFunctions import getPlaylist
 import errorCodes as ec
 import auxiliarFunctions as af
 
-tableMusic = pd.read_csv('data\\tableMusic.csv')
-
 # function responsible for remove a song for the database and for the playlist in the same time.
 def removeSongDataBase(tableMusic, playlists):
     #the condition sees if the index is in the dataframe tableMusic
@@ -21,19 +19,33 @@ def removeSongDataBase(tableMusic, playlists):
     if not((songId == tableMusic["id_music"]).any()):
         return ec.song_not_found   
    
+    playlistsToUpdate = playlists["id_playlist"][playlists["id_music"]==songId]
+    
+    for playListName in playlistsToUpdate:
+    
+        playlist = getPlaylist(playlists, playListName)
+        playlist.reset_index(inplace = True, drop = True)
+        numSongs = len(playlist)
+        
+        songRating = tableMusic['rating_global'][songId == tableMusic["id_music"]].item()
+        #calculate the new average song rating and put with one decimal place.
+        newAverageSongRating = af.subtractFromAverage(playlist["average_rating_musics"][0], numSongs, songRating)
+        newAverageSongRating = round(newAverageSongRating, 1)
+        
+        playlists["average_rating_musics"][(playlists["id_playlist"] == playListName)] = newAverageSongRating
+        
     # .drop is the pandas function to remove anything; and get boolean array of music id matches
     tableMusic.drop(tableMusic[tableMusic["id_music"] == songId].index, inplace=True)
     playlists.drop(playlists[playlists["id_music"] == songId].index, inplace = True)
         
-         
     try: 
         tableMusic.to_csv("data\\tableMusic.csv", index= False) 
+        playlists.to_csv("data\\playlist.csv", index= False) 
         print(tableMusic)
         
     except:
         return ec.file_open
-    
-    print(tableMusic)
+   
     return ec.successfull_execution
 
 #function that remove a song from a playlist
