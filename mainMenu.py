@@ -73,7 +73,7 @@ submenu_2_3 = """
 \033[1m 4 \033[0;0m review playlist
 \033[1m 5 \033[0;0m pick another playlist
 \033[1m 0 \033[0;0m back
- (enter a number) => """
+ """
 
 submenu_3 = """
 \033[1m J U K E B O T I F Y \033[0;0m
@@ -152,9 +152,9 @@ def subMenu_2():
 
 
 def subMenu_2_1():
-    playlistRules.playlistRulesFun()
     second_input = -1
     while second_input != 0:
+        playlistRules.playlistRulesFun()
         second_input = input(submenu_2_1)
         match(second_input):
             case("1"):
@@ -186,7 +186,7 @@ def subMenu_2_3():
     second_input = -1
     playlist_pick = playlistAddMusic.pickPlaylist(playlist_df)
     while second_input != 0:
-        second_input = input(submenu_2_3)
+        second_input = input(submenu_2_3 + "selected playlist[" + playlist_pick + "]\n" + " (enter a number) => ")
         match(second_input):
             case("1"):
                 songs_ids = list(playlist_df.loc[playlist_df['id_playlist'] == playlist_pick,'id_music'])

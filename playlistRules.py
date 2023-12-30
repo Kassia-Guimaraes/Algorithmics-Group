@@ -82,3 +82,4 @@ def playlistRulesFun():
             print(playlist[['id_music', 'title', 'style', 'duration', 'duration_playlist']].to_markdown(index=False))
     except:
         print("\033[1m WARNING: \033[0;0mno playlist created")
+        return
