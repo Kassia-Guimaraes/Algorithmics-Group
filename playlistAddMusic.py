@@ -6,11 +6,13 @@ import auxiliarFunctions as af
 def pickPlaylist(playlist_csv):
     playlists_list = sorted(list(playlist_csv['id_playlist'].drop_duplicates()))
     playListName = ""
+    input_message = " enter a playlist name (0 to abort) => "
     while playListName not in playlists_list:
         print("\033[1m AVAILABLE PLAYLISTS \033[0;0m")
         for id in playlists_list:
             print(" ", id)
-        playListName = input(" Enter a playlist name => ")
+        playListName = input(input_message)
+        input_message = " \033[1m WARNING: \033[0;0minvalid input\n enter a playlist name (0 to abort) => "
     return playListName
 
 # the specific function addMusic, add a music from the data base to a playlist

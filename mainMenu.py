@@ -22,7 +22,7 @@ main_menu = """
 
         \033[1m MAIN MENU \033[0;0m
 ======================================================================
-\033[1m┇ 1️⃣ \033[0;0m music management                                                 ┇
+\033[1m┇ 1️⃣ \033[0;0m database management                                                 ┇
 \033[1m┇ 2️⃣ \033[0;0m playlists management                                             ┇
 \033[1m┇ 3️⃣ \033[0;0m quick play                                                       ┇
 \033[1m┇ 0️⃣ \033[0;0m exit Jukebotify                                                  ┇
@@ -186,7 +186,7 @@ def subMenu_2_3():
     second_input = -1
     playlist_pick = playlistAddMusic.pickPlaylist(playlist_df)
     while second_input != 0:
-        second_input = input(submenu_2_3 + "selected playlist[" + playlist_pick + "]\n" + " (enter a number) => ")
+        second_input = input(submenu_2_3 + "selected playlist[\033[1m" + playlist_pick + "\033[0;0m]\n" + " (enter a number) => ")
         match(second_input):
             case("1"):
                 songs_ids = list(playlist_df.loc[playlist_df['id_playlist'] == playlist_pick,'id_music'])

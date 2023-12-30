@@ -18,6 +18,8 @@ def getUsersFilters(df): #df = tableMusic_df
             choice = int(input(" Choose a filter: "))
 
             if choice == 0: #next
+                if filterList == []:
+                    print(df) # present the whole unfiltered table
                 break
             elif 1 <= choice <= len(available_columns):
                 selected_column = available_columns[choice - 1] #array index, value - 1

@@ -41,7 +41,7 @@ def filterSongs(theFilter, table, filterArray):
             table.set_index(theFilter, inplace = True)
             if selectionArray != []:
                 table = table.loc[selectionArray]
-                print(table)
+                print("this print \n", table)
                 return table
             else:
                 print(table)
@@ -52,7 +52,7 @@ def filterSongs(theFilter, table, filterArray):
 
 # output menu for given filter
 def filter_menu(theArray, theFilter):
-    print("\n" + "\033[1m" + "FILTER " + theArray.upper() + "\033[0;0m")
+    print("\n" + "\033[1m" + " FILTER " + theArray.upper() + "\033[0;0m")
     for i in range(0, len(theFilter), 1):
         print("\033[1m", str(i+1), "\033[0;0m ", str(theFilter[i]))
     # print("\033[1m", "0", "\033[0;0m ", "(next)")
