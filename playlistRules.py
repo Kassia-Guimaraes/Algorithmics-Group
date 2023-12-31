@@ -49,7 +49,7 @@ def createdPlaylists():
         print("\nSongs per style:")
         print(count_style)
 
-        rating_playlist = float(input("What grade do you give to the playlist (1-5)? ")) #user rating playlist
+        rating_playlist = float(input(" What grade do you give to the playlist (1-5)? ")) #user rating playlist
 
         for id_songs in id_songs_playlist: #take all songs and save in dataframe
 

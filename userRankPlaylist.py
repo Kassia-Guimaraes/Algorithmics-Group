@@ -4,10 +4,9 @@ import math
 from auxiliarFunctions import getPlaylist, addToAverage
 
 #this function add the rank into a playlist
-def addRank(playlists):
+def addRank(playlists, chosenPlaylist):
     #the playlist will try to find the playlist the user want using the auxiliar function getPlaylist
-    playListName = input("Enter a playlist name: ")
-    playlist = getPlaylist(playlists, playListName)
+    playlist = getPlaylist(playlists, chosenPlaylist)
     #checks if chosen playlist is in playlist file:
     if len(playlist) <= 0 :
         return ec.playlist_not_found
@@ -15,7 +14,7 @@ def addRank(playlists):
 #reset the index from the playlist chosen is needed for the average formula
     playlist.reset_index(inplace = True, drop = True)
 
-    print("you chose the playlist: ", playListName)
+    print("you chose the playlist: ", chosenPlaylist)
     #user input
     userRating = input("Rate the chosen playlist (from 1 to 5): ")
     #the user input can be a decimal number, but if it's something different it will return a sintax error.
@@ -41,14 +40,14 @@ def addRank(playlists):
     #This is the current number of ratings before the changes
     currentNumberOfReview = playlistNumberOfReviewColumn[0]
 
-    #calculate the average with the informations above.
+    #calculate the average with the information above.
     newAverage = addToAverage(currentRank, currentNumberOfReview, userRating)
     newAverage = round(newAverage, 1)
 
     # new average after the user rating
-    playlists["rating_playlist"][playlists["id_playlist"] == playListName] = newAverage
+    playlists["rating_playlist"][playlists["id_playlist"] == chosenPlaylist] = newAverage
     # the number of ratings is the last one plus (+) 1 (the user that have already done the rating)
-    playlists["num_ratings"][playlists["id_playlist"] == playListName] = currentNumberOfReview+1
+    playlists["num_ratings"][playlists["id_playlist"] == chosenPlaylist] = currentNumberOfReview+1
 
     #try save in the file, and if not return an error message.
     try:
@@ -58,7 +57,7 @@ def addRank(playlists):
         return ec.file_open
 
     #print the playlist after the changes
-    playlist = getPlaylist(playlists, playListName)
+    playlist = getPlaylist(playlists, chosenPlaylist)
     print(playlist)
 
     #error code = 0

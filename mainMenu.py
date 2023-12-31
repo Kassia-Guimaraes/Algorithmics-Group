@@ -11,6 +11,8 @@ import bestRankStyleMain
 import playlistManual
 import playlistRules
 import playlistAddMusic
+import visualization2
+import userRankPlaylist
 
 playlist_df = pd.read_csv('data/playlist.csv')
 tableMusic_df = pd.read_csv('data/tableMusic.csv')
@@ -32,11 +34,10 @@ main_menu = """
 submenu_1 = """
 \033[1m J U K E B O T I F Y \033[0;0m
  main menu/\033[1mMANAGE DATABASE \033[0;0m
-\033[1m 1 \033[0;0m add song to database
-\033[1m 2 \033[0;0m delete song from database
-\033[1m 3 \033[0;0m create new music style
-\033[1m 4 \033[0;0m most popular songs in playlists
-\033[1m 5 \033[0;0m highest rated songs
+\033[1m 1 \033[0;0m check database
+\033[1m 2 \033[0;0m add song to database
+\033[1m 3 \033[0;0m delete song from database
+\033[1m 4 \033[0;0m create new music style
 \033[1m 0 \033[0;0m back
  (enter a number) => """
 
@@ -59,8 +60,7 @@ submenu_2_1 = """
 submenu_2_2 = """
 \033[1m J U K E B O T I F Y \033[0;0m
  main menu/manage playlists/\033[1mPERSONALIZED PLAYLIST \033[0;0m
-\033[1m 1 \033[0;0m rate song
-\033[1m 2 \033[0;0m start playback
+\033[1m 1 \033[0;0m create another playlist
 \033[1m 0 \033[0;0m back
  (enter a number) => """
 
@@ -70,7 +70,7 @@ submenu_2_3 = """
 \033[1m 1 \033[0;0m expand playlist
 \033[1m 2 \033[0;0m add song to playlist
 \033[1m 3 \033[0;0m remove song from playlist
-\033[1m 4 \033[0;0m review playlist
+\033[1m 4 \033[0;0m rate playlist
 \033[1m 5 \033[0;0m pick another playlist
 \033[1m 0 \033[0;0m back
  """
@@ -78,8 +78,10 @@ submenu_2_3 = """
 submenu_3 = """
 \033[1m J U K E B O T I F Y \033[0;0m
  main menu\033[1m/QUICK PLAY \033[0;0m
-\033[1m 1 \033[0;0m random
-\033[1m 2 \033[0;0m pick playlist
+\033[1m 1 \033[0;0m play random song
+\033[1m 2 \033[0;0m pick song
+\033[1m 3 \033[0;0m check most popular songs in playlists
+\033[1m 4 \033[0;0m check highest rated songs
 \033[1m 0 \033[0;0m back
  (enter a number) => """
 
@@ -120,15 +122,13 @@ def subMenu_1():
         second_input = input(submenu_1)
         match(second_input):
             case("1"):
-                addNewMusic.addMusic()
+                print(tableMusic_df.to_markdown(index=False))
             case("2"):
-                removeSongMain.removeSongDatabase()
+                addNewMusic.addMusic()
             case("3"):
-                addStyle.addStyle()
+                removeSongMain.removeSongDataBaseMenu()
             case("4"):
-                prevalenceMusic.songRecurrence()
-            case("5"):
-                bestRankStyleMain.rankByStyle()
+                addStyle.addStyle()
             case("0"):
                 return
             case(_):
@@ -152,18 +152,18 @@ def subMenu_2():
 
 
 def subMenu_2_1():
-    second_input = -1
-    while second_input != 0:
-        playlistRules.playlistRulesFun()
-        second_input = input(submenu_2_1)
-        match(second_input):
-            case("1"):
-                print("NOT ADDED YET") # START PLAYING PLAYLIST
-                return
-            case("0"):
-                return
-            case(_):
-                subMenu_2_1()
+    playlistRules.playlistRulesFun()
+    # second_input = -1
+    # while second_input != 0:
+    #     playlistRules.playlistRulesFun()
+    #     second_input = input(submenu_2_1)
+    #     match(second_input):
+    #         case("1"):
+    #             subMenu_2_1()
+    #         case("0"):
+    #             return
+    #         case(_):
+    #             subMenu_2_1()
 
 def subMenu_2_2():
     playlistManual.playlistManualFun()
@@ -172,11 +172,7 @@ def subMenu_2_2():
         second_input = input(submenu_2_2)
         match(second_input):
             case("1"):
-                musicReview.song_rating(tableMusic_df)
-                return
-            case("2"):
-                print("NOT ADDED YET") # START PLAYING PLAYLIST
-                return
+                subMenu_2_2()
             case("0"):
                 return
             case(_):
@@ -189,16 +185,14 @@ def subMenu_2_3():
         second_input = input(submenu_2_3 + "selected playlist[\033[1m" + playlist_pick + "\033[0;0m]\n" + " (enter a number) => ")
         match(second_input):
             case("1"):
-                songs_ids = list(playlist_df.loc[playlist_df['id_playlist'] == playlist_pick,'id_music'])
-                for id in songs_ids:
-                    print(tableMusic_df.loc[tableMusic_df['id_music'] == id])
+                visualization2.view_playlist_songs(playlist_pick)
             case("2"):
                 playlistAddMusic.addMusic(playlist_df, tableMusic_df, playlist_pick)
             case("3"):
-                removeSongMain.removeSongPlaylist(playlist_df,playlist_pick)
+                removeSongMain.removeSongPlaylist(tableMusic_df, playlist_df, playlist_pick)
                 return
             case("4"):
-                print("not added") # REVIEW PLAYLIST
+                userRankPlaylist.addRank(playlist_df, playlist_pick)
             case("5"):
                 subMenu_2_3()
             case("0"):
@@ -217,6 +211,10 @@ def subMenu_3():
             case("2"):
                 print("NOT ADDED YET") # PICK PLAYLIST
                 return
+            case("3"):
+                prevalenceMusic.songRecurrence()
+            case("4"):
+                bestRankStyleMain.rankByStyle()
             case("0"):
                 return
             case(_):

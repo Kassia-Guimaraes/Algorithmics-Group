@@ -44,7 +44,7 @@ def createPlaylist(filtersList, loc_df, playlist_title):
 
     while True:
         try:
-            selected_song_id = input(" Pick the id of the song add to " + playlist_title + "(0 to finish, ENTER to reset filters): ")
+            selected_song_id = input(" Enter the id of the song to add to " + playlist_title + "(0 to finish, ENTER to reset filters): ")
 
             if selected_song_id == "0":
                 break

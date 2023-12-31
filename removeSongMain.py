@@ -6,23 +6,24 @@ import errorCodes as ec
 
 ### .PY file to test removeSong.py functions ###
 
-def removeSongDatabase():
+def removeSongDataBaseMenu():
     #Reads TableMusic and Playlist CSVs into dataframe variables
     tableMusic_df = pd.read_csv('data/tableMusic.csv')
     playlist_df = pd.read_csv('data/playlist.csv')
 
     #Shows all the available songs
-    print("These are the songs in the data base: ")
+    print(" These are the songs in the data base: ")
     print(tableMusic_df)
 
     #Testing function that removes a song from the entire database (tableMusic and playlists)
-    print("Choose one song to remove from the data base")
-    songId = input(" Enter song id => ")
+    songId = input(" Enter id of the song you wish to remove (0 to abort) => ")
+    if songId == "0":
+        return
     try:
         removeSongDataBase(tableMusic_df, playlist_df, int(songId))
     except:
         print("\033[1m WARNING: \033[0;0minvalid input")
-        removeSongDatabase()
+        removeSongDataBaseMenu()
     print(tableMusic_df)
     print(playlist_df)
 
@@ -43,13 +44,32 @@ def removeSongDataBase(tableMusic, playlists, id):
         print("\033[1m WARNING: \033[0;0mThis song is not in our system. Please chose a valid option => ")
 
 
-def removeSongPlaylist(playlists, playListName):
-    songId = input(" Enter index of song to be removed from " + playListName + "(0 to return) => ")
+def removeSongPlaylist(tableMusic, playlists, playListName):
+    import auxiliarFunctions as af
+    songId = input(" Enter index of song to be removed from " + playListName + " (0 to return) => ")
+
     #gets chosen playlist
     playlist = getPlaylist(playlists,playListName)
+    numSongs = len(playlist) # ADDED
+
+    if numSongs <= 0 :
+        return ec.playlist_not_found
 
     #checks if chosen id is in playlist
-    if songId in str(playlist["id_music"].values):
+    if str(songId) in str(playlist["id_music"].values):
+
+
+        # ADDED
+        songId = int(songId)
+        songRating = tableMusic['rating_global'][(songId == tableMusic["id_music"])].item()
+        #calculate the new average song rating and put with one decimal place.
+        newAverageSongRating = af.subtractFromAverage(list(playlist["average_rating_musics"])[0], numSongs, songRating)
+        newAverageSongRating = round(newAverageSongRating, 1)
+
+        playlists["average_rating_musics"][(playlists["id_playlist"] == playListName)] = newAverageSongRating
+        # ADDED
+
+
         #get boolean array of playlist matches
         playListMatch = playlists["id_playlist"] == playListName
         #get boolean array of music id matches
@@ -69,4 +89,4 @@ def removeSongPlaylist(playlists, playListName):
         return
     else :
         print("\033[1m WARNING: \033[0;0mNonexistent song/playlist.")
-        removeSongPlaylist(playlists, playListName)
+        removeSongPlaylist(tableMusic, playlists, playListName)
