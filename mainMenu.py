@@ -190,7 +190,6 @@ def subMenu_2_3():
                 playlistAddMusic.addMusic(playlist_df, tableMusic_df, playlist_pick)
             case("3"):
                 removeSongMain.removeSongPlaylist(tableMusic_df, playlist_df, playlist_pick)
-                return
             case("4"):
                 userRankPlaylist.addRank(playlist_df, playlist_pick)
             case("5"):

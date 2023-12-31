@@ -14,16 +14,18 @@ def addRank(playlists, chosenPlaylist):
 #reset the index from the playlist chosen is needed for the average formula
     playlist.reset_index(inplace = True, drop = True)
 
-    print("you chose the playlist: ", chosenPlaylist)
+    print(" You chose the playlist ", chosenPlaylist)
     #user input
-    userRating = input("Rate the chosen playlist (from 1 to 5): ")
+    userRating = input(" Rate the chosen playlist (from 1 to 5) => ")
     #the user input can be a decimal number, but if it's something different it will return a sintax error.
     try:
         userRating = float(userRating)
     except:
+        print("\033[1m WARNING: \033[0;0mInvalid input")
         return ec.sintax
     #the values accepted are between 1 and 5
     if not(userRating > 0 and userRating <= 5):
+        print("\033[1m WARNING: \033[0;0mOut of range")
         return ec.invalid_rating
 
     #Get column with the playlist ranking
@@ -52,6 +54,7 @@ def addRank(playlists, chosenPlaylist):
     #try save in the file, and if not return an error message.
     try:
         playlists.to_csv("data/playlist.csv", index = False)
+        print("\033[1m SUCCESS: \033[0;0mPlaylist rated ", userRating)
 
     except:
         return ec.file_open

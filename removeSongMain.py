@@ -40,23 +40,22 @@ def removeSongDataBase(tableMusic, playlists, id):
        #tableMusic and playlists are the dataframes where the music is going to be removed.
        tableMusic.to_csv("data/tableMusic.csv", index=False)
        playlists.to_csv("data/playlist.csv", index=False)
+       print("\033[1m SUCCESS: \033[0;0mSong removed from database ")
     else :
         print("\033[1m WARNING: \033[0;0mThis song is not in our system. Please chose a valid option => ")
 
 
 def removeSongPlaylist(tableMusic, playlists, playListName):
     import auxiliarFunctions as af
+    print(getPlaylist(playlists, playListName))
     songId = input(" Enter index of song to be removed from " + playListName + " (0 to return) => ")
 
     #gets chosen playlist
     playlist = getPlaylist(playlists,playListName)
     numSongs = len(playlist) # ADDED
 
-    if numSongs <= 0 :
-        return ec.playlist_not_found
-
     #checks if chosen id is in playlist
-    if str(songId) in str(playlist["id_music"].values):
+    if (" " + str(songId) + " ") in str(playlist["id_music"].values):
 
 
         # ADDED
@@ -78,15 +77,16 @@ def removeSongPlaylist(tableMusic, playlists, playListName):
         removeIndex = playlists[playListMatch & idMatch].index
         #removes from playLists dataframe the specified song of the specified playlist
         playlists.drop(removeIndex, inplace = True)
-
+        print("\033[1m SUCCESS: \033[0;0mSong removed from playlist ", playListName)
         try:
             playlists.to_csv("data/playlist.csv", index = False)
             print(getPlaylist(playlists, playListName))
+
         #error message from file errorCode
         except:
             return ec.file_open
     elif songId == "0":
         return
     else :
-        print("\033[1m WARNING: \033[0;0mNonexistent song/playlist.")
+        print("\033[1m WARNING: \033[0;0mInvalid input.")
         removeSongPlaylist(tableMusic, playlists, playListName)

@@ -65,6 +65,7 @@ def addMusic():
     newMusic = pd.concat([tableMusic_df, new_music_line], ignore_index=False)
 
     print(newMusic[['id_music', 'title', 'artist','style','duration']].to_markdown(index=False))
+    print("\033[1m SUCCESS: \033[0;0mSong added to database ")
     # newTable.to_csv('./tableMusic.csv')  # Uncomment to save the updated DataFrame
 
     return newMusic  # Updated DataFrame

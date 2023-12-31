@@ -34,20 +34,26 @@ def addMusic(playlists, songDataBase, playlist):
     print("you chose the playlist: ", playListName)
 
     #music that the user wishes to add in the playlist
-    print(songDataBase)
-    chooseMusic = input(" Add a song to " + playListName + "(pick an 'id_music')=> ")
+    print(songDataBase.to_markdown(index=False))
+    chooseMusic = input(" Enter the id of the song to add to " + playListName + "(0 to abort) => ")
     #the input of the music have to be an integer as it is being taking from the column 'id_music'. if it´s not it will return an error.
     try:
         userIdMusic = int(chooseMusic)
 
     except:
-        return ec.sintax
+        print("\033[1m WARNING: \033[0;0mInvalid input")
+        return
 
     #the input must be a number that is present in the column íd_music' and that is not already in the playlist chosen, or it will return an error.
-    if ((userIdMusic <= 0) or ((userIdMusic == playlist['id_music']).any())):
+    if ((userIdMusic < 0) or ((userIdMusic == playlist['id_music']).any())):
+        print("\033[1m WARNING: \033[0;0mSong already in playlist")
         return ec.playlist_duplicate
 
+    if userIdMusic == 0:
+        return
+
     if not((userIdMusic == songDataBase["id_music"]).any()):
+        print("\033[1m WARNING: \033[0;0mSong not found")
         return ec.song_not_found
 
     #get the current global rating of that music.
@@ -69,8 +75,9 @@ def addMusic(playlists, songDataBase, playlist):
     #save the file with the new information, if not, return an error.
     try:
         playlists.to_csv("data/playlist.csv", index = False)
-        print(playlists)
-
+        playlist = af.getPlaylist(playlists, playListName)
+        print(playlist.to_markdown(index=False))
+        print("\033[1m SUCCESS: \033[0;0mSong added to playlist ", playListName)
     except:
         return ec.file_open
 
