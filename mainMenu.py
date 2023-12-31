@@ -194,6 +194,7 @@ def subMenu_2_3():
                 userRankPlaylist.addRank(playlist_df, playlist_pick)
             case("5"):
                 subMenu_2_3()
+                return
             case("0"):
                 return
             case(_):

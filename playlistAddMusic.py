@@ -35,7 +35,7 @@ def addMusic(playlists, songDataBase, playlist):
 
     #music that the user wishes to add in the playlist
     print(songDataBase.to_markdown(index=False))
-    chooseMusic = input(" Enter the id of the song to add to " + playListName + "(0 to abort) => ")
+    chooseMusic = input(" Enter the id of the song to add to " + playListName + " (0 to abort) => ")
     #the input of the music have to be an integer as it is being taking from the column 'id_music'. if it´s not it will return an error.
     try:
         userIdMusic = int(chooseMusic)
@@ -71,7 +71,7 @@ def addMusic(playlists, songDataBase, playlist):
 
     #insert in the dataframe playlists the new row.
     playlists.loc[len(playlists)] = newRow
-    print("these be the playlists\n",playlists)
+    print("these are the playlists\n",playlists)
     #save the file with the new information, if not, return an error.
     try:
         playlists.to_csv("data/playlist.csv", index = False)

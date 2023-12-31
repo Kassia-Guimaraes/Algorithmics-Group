@@ -1,6 +1,4 @@
 id_music,style,type,title,songwriter,year,artist,rating_global,rating_user,duration
-2,Rock,Band,How You Remind Me,Chad Kroeger,2001,Nickelback,5,,228
-3,Rock,Band,Californication,"Anthony Kiedis, Chad Smith, Flea E John Frusciante",1999,Red Hot Chili Peppers,5,,322
 4,Rock,Band,Clint Eastwood,"Damon Albarn, Jamie Hewlett, Teren Jones",2001,Gorillaz,4,,269
 5,Rock,Band,Feel Good Inc,"Damon Albarn, David Jolicoeur",2005,Gorillaz,5,,254
 6,Rock,Band,Chop Suey,"Daron Malakian, Serj Tankian",2001,System Of Down,5,,225
@@ -31,7 +29,6 @@ id_music,style,type,title,songwriter,year,artist,rating_global,rating_user,durat
 31,Folk,Band,Drunken Sailor,Desconhecido,2012,The Irish Rovers,4,,176
 32,Folk,Band,Pink Moon,John Wood,1972,Nick Drake,4,,124
 33,Folk,Band,Riverman,Robert Kirby And Joe Boyd,1969,Nick Drake,4,,243
-34,Folk,Band,Fairytale Of New York,Jem Finer E Shane Macgowan,1987,The Pogues,4,,273
 35,Folk,Band,Big Yellow Taxi,Joni Mitchell ,1970,Joni Mitchell ,0,,139
 36,Folk,Duo,Stolen Apple,Phil Poirier E Pat Malia,2010,Phil Poirier,3,,219
 37,Folk,Duo,Goddess Moon,Phil Poirier E Pat Malia,2010,Phil Poirier,2,,241
