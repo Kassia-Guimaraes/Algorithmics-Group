@@ -21,10 +21,18 @@ def createdPlaylists():
     createdPlaylists = []  # store all created playlists
     add_playlist_df = pd.DataFrame()
     while True:
-        flag = input(" Do you want to create a new automatic playlist? (Y/N) ").strip().lower()
-
-        if flag != 'y':
+        flag = ''
+        while flag != 'y':
+            flag = input(" Do you want to create a new automatic playlist? (Y/N) ").strip().lower()
+            if flag == 'n':
+                break
+        if flag == 'n':
+            print("\033[1m WARNING: \033[0;0moperation aborted")
             break
+        # flag = input(" Do you want to create a new automatic playlist? (Y/N) ").strip().lower()
+        # if flag != 'y':
+        #     print("\033[1m WARNING: \033[0;0moperation aborted")
+        #     break
 
         new_playlist_id = get_new_id()  # get a new unique playlist ID
         name_playlist = f'play_auto_{new_playlist_id}'  # save as play_auto and the playlist number
@@ -49,11 +57,11 @@ def createdPlaylists():
         print("\nSongs per style:")
         print(count_style)
 
-        rating_playlist = float(input(" What grade do you give to the playlist (1-5)? ")) #user rating playlist
+        # rating_playlist = float(input(" What grade do you give to the playlist (1-5)? ")) #user rating playlist
 
         for id_songs in id_songs_playlist: #take all songs and save in dataframe
 
-            new_playlist_auto = {"id_playlist": name_playlist, "duration_playlist": duration_playlist, "id_music": id_songs, "rating_playlist": rating_playlist, "average_rating_musics": average_rating} #dictionary to csv file
+            new_playlist_auto = {"id_playlist": name_playlist, "duration_playlist": duration_playlist, "id_music": id_songs, "average_rating_musics": average_rating, "num_ratings": "1.0"} #dictionary to csv file
 
             playlist_auto_df = pd.DataFrame([new_playlist_auto]) # Convert the dictionary to a DataFrame
             add_playlist_df = pd.concat([add_playlist_df,playlist_auto_df], ignore_index=True) # Concat the new line of playlist (present in dictionary) on add_playlist_df
@@ -61,7 +69,7 @@ def createdPlaylists():
         new_playlists = pd.concat([playlists_df,add_playlist_df])
         new_playlists = new_playlists.set_index('id_playlist')
 
-        #new_playlists.to_csv('data/playlist.csv') #add on csv file
+        new_playlists.to_csv('data/playlist.csv') #add on csv file
         # Create a DataFrame containing all created playlists
         createdPlaylists_df = pd.concat(createdPlaylists)
 

@@ -1,5 +1,5 @@
 import pandas as pd
-import random #Aleatory numbers
+import random #Random numbers
 
 class IDGenerator: #Generator id class
     def __init__(self): #take id's in use

@@ -153,6 +153,7 @@ def subMenu_2():
 
 def subMenu_2_1():
     playlistRules.playlistRulesFun()
+    return
     # second_input = -1
     # while second_input != 0:
     #     playlistRules.playlistRulesFun()
@@ -182,7 +183,8 @@ def subMenu_2_3():
     second_input = -1
     playlist_pick = playlistAddMusic.pickPlaylist(playlist_df)
     while second_input != 0:
-        second_input = input(submenu_2_3 + "selected playlist[\033[1m" + playlist_pick + "\033[0;0m]\n" + " (enter a number) => ")
+        print(submenu_2_3 , "selected playlist[\033[1m" , playlist_pick , "\033[0;0m]\n")
+        second_input = input(" (enter a number) => ")
         match(second_input):
             case("1"):
                 visualization2.view_playlist_songs(playlist_pick)
