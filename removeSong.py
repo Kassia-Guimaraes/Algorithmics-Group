@@ -54,7 +54,7 @@ def removeSongPlaylist(songDataBase, playlists):
     #gets chosen playlist
     playListName = input("Enter a playlist name: ")
     playlist = getPlaylist(playlists, playListName)
-    
+    playlist.reset_index(inplace = True, drop = True)
     numSongs = len(playlist)
     
     #if it's empyte the condition will return an error
