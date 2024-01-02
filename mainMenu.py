@@ -148,7 +148,8 @@ def subMenu_2():
             case("0"):
                 return
             case(_):
-                subMenu_2()
+                print("\033[1m WARNING: \033[0;0minvalid input")
+                continue
 
 
 def subMenu_2_1():
@@ -173,14 +174,16 @@ def subMenu_2_2():
         second_input = input(submenu_2_2)
         match(second_input):
             case("1"):
-                subMenu_2_2()
+                playlistManual.playlistManualFun()
+                continue
             case("0"):
                 return
             case(_):
-                subMenu_2_2()
+                print("\033[1m WARNING: \033[0;0minvalid input")
+                continue
 
 def subMenu_2_3():
-    second_input = -1
+    second_input = 5
     playlist_pick = playlistAddMusic.pickPlaylist(playlist_df)
     while second_input != 0:
         print(submenu_2_3 , "selected playlist[\033[1m" , playlist_pick , "\033[0;0m]\n")
@@ -195,12 +198,13 @@ def subMenu_2_3():
             case("4"):
                 userRankPlaylist.addRank(playlist_df, playlist_pick)
             case("5"):
-                subMenu_2_3()
-                return
+                playlist_pick = playlistAddMusic.pickPlaylist(playlist_df)
+                continue
             case("0"):
                 return
             case(_):
-                subMenu_2_3()
+                print("\033[1m WARNING: \033[0;0minvalid input")
+                continue
 
 def subMenu_3():
     second_input = -1
@@ -220,7 +224,8 @@ def subMenu_3():
             case("0"):
                 return
             case(_):
-                subMenu_3()
+                print("\033[1m WARNING: \033[0;0minvalid input")
+                continue
 
 def mainMenu():
     first_input = -1
@@ -236,5 +241,6 @@ def mainMenu():
             case("0"):
                 return
             case(_):
-                mainMenu()
+                print("\033[1m WARNING: \033[0;0minvalid input")
+                continue
 mainMenu()

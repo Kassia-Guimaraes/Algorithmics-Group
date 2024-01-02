@@ -70,6 +70,9 @@ def removeSongPlaylist(tableMusic, playlists, playListName):
         try:
             songId = int(input(" Enter id of song to be removed from " + playListName + " (0 to return) => "))
         except:
+            # if songId == "0":
+            #     return
+            # else:
             print("\033[1m WARNING: \033[0;0mInvalid input.")
     #gets chosen playlist
     playlist = getPlaylist(playlists,playListName)
@@ -105,7 +108,7 @@ def removeSongPlaylist(tableMusic, playlists, playListName):
         #error message from file errorCode
         except:
             return ec.file_open
-    elif songId == "0":
+    elif songId == 0:
         return
     else :
         print("\033[1m WARNING: \033[0;0mInvalid input.")

@@ -8,7 +8,7 @@ def getUsersFilters(df): #df = tableMusic_df
     filterList = []
 
     while True:
-        print(" Available filters:")
+        print(" Filter songs\nAvailable filters:")
         for i, column in enumerate(available_columns, start=1): #menu starts in 1
             print("\033[1m", i, "\033[0;0m ", column)
         print("\033[1m", "0", "\033[0;0m ", "(next)")
@@ -70,7 +70,7 @@ def createPlaylist(filtersList, loc_df, playlist_title):
         average_rating = "{:.1f}".format(selectedSongs_df['rating_global'].mean()) #averange rating songs in playlist
 
         print(f"\nYour Created Playlist: {playlist_title}\t Duration Playlist: {duration_playlist}\n{selectedSongs_df[['id_music', 'title', 'artist', 'style', 'year']].to_markdown(index=False)}")
-        rating_playlist = float(input("What grade do you give to the playlist (1-5)? ")) #user rating playlist
+        rating_playlist = float(input(" Rate your new playlist (1-5)? ")) #user rating playlist
 
         id_songs_playlist = list(set(selectedSongs_df['id_music']))
 
@@ -82,7 +82,7 @@ def createPlaylist(filtersList, loc_df, playlist_title):
         new_playlist = pd.concat([playlist_df,add_playlist_df]) #concat the new playlist with rest of playlists
         new_playlist = new_playlist.set_index('id_playlist')
 
-        #new_playlist.to_csv('jukebotify/data/playlist.csv') #add in csv file
+        new_playlist.to_csv('jukebotify/data/playlist.csv') #add in csv file
         return selectedSongs_df #return the playlist
     except:
         print("\033[1m WARNING: \033[0;0mempty playlist")
