@@ -132,7 +132,8 @@ def subMenu_1():
             case("0"):
                 return
             case(_):
-                subMenu_1()
+                print("\033[1m WARNING: \033[0;0minvalid input")
+                continue
 
 def subMenu_2():
     second_input = -1
