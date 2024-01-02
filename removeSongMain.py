@@ -25,9 +25,7 @@ def removeSongDataBaseMenu():
         print("\033[1m WARNING: \033[0;0minvalid input")
         removeSongDataBaseMenu()
     print(tableMusic_df)
-    print(playlist_df)
-
-
+    return tableMusic_df
 
 
 # function responsible for remove a song for the database and for the playlist in the same time.

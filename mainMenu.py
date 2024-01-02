@@ -122,7 +122,7 @@ def subMenu_1():
         second_input = input(submenu_1)
         match(second_input):
             case("1"):
-                print(tableMusic_df.to_markdown(index=False))
+                print(tableMusic_df)
             case("2"):
                 addNewMusic.addMusic()
             case("3"):
