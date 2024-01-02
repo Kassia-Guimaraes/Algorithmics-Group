@@ -22,16 +22,19 @@ main_menu = """
 \033[94m                       J U K E B O T I F Y      \033[0;0m
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-        \033[1m MAIN MENU \033[0;0m
+        \033[35m MAIN MENU \033[0;0m
 ======================================================================
-\033[1m┇ 1️⃣ \033[0;0m database management                                                 ┇
+\033[1m┇ 1️⃣ \033[0;0m database management                                              ┇
 \033[1m┇ 2️⃣ \033[0;0m playlists management                                             ┇
 \033[1m┇ 3️⃣ \033[0;0m quick play                                                       ┇
 \033[1m┇ 0️⃣ \033[0;0m exit Jukebotify                                                  ┇
 ======================================================================
-🎵  Please select the option by number 🎵 >>> """
+🎶  Please select the option by number 🎶 >>> """
+
+
 
 submenu_1 = """
+<<<<<<< Updated upstream
 \033[1m J U K E B O T I F Y \033[0;0m
  main menu/\033[1mMANAGE DATABASE \033[0;0m
 \033[1m 1 \033[0;0m check database
@@ -40,15 +43,32 @@ submenu_1 = """
 \033[1m 4 \033[0;0m create new music style
 \033[1m 0 \033[0;0m back
  (enter a number) => """
+=======
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+ main menu / \033[94mMANAGE DATABASE \033[0;0m
+====================================================================== 
+\033[1m 1️⃣ \033[0;0m add song to database                                               ┇
+\033[1m 2️⃣ \033[0;0m delete song from database                                          ┇
+\033[1m 3️⃣ \033[0;0m create new music style                                             ┇
+\033[1m 4️⃣ \033[0;0m most popular songs in playlists                                    ┇
+\033[1m 5️⃣ \033[0;0m highest rated songs                                                ┇
+\033[1m 0️⃣ \033[0;0m back                                                               ┇
+======================================================================
+🎵  Please select the option by number 🎵 >>> """
+>>>>>>> Stashed changes
 
 submenu_2 = """
-\033[1m J U K E B O T I F Y \033[0;0m
- main menu/\033[1mMANAGE PLAYLISTS \033[0;0m
-\033[1m 1 \033[0;0m create random playlist
-\033[1m 2 \033[0;0m create personalized a playlist
-\033[1m 3 \033[0;0m edit a playlist
-\033[1m 0 \033[0;0m back
- (enter a number) => """
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+ main menu/\033[94mMANAGE PLAYLISTS \033[0;0m
+ ====================================================================== 
+\033[1m 1 \033[0;0m create random playlist                                              ┇
+\033[1m 2 \033[0;0m create personalized a playlist                                      ┇
+\033[1m 3 \033[0;0m edit a playlist                                                     ┇
+\033[1m 0 \033[0;0m back                                                                ┇
+====================================================================== 
+🎵  Please select the option by number 🎵 >>> """
 
 submenu_2_1 = """
 \033[1m J U K E B O T I F Y \033[0;0m
