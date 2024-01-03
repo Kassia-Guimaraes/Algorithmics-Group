@@ -34,7 +34,7 @@ main_menu = """
 
 
 submenu_1 = """
-<<<<<<< Updated upstream
+<<<<<<< Updated upstrea m
 \033[1m J U K E B O T I F Y \033[0;0m
  main menu/\033[1mMANAGE DATABASE \033[0;0m
 \033[1m 1 \033[0;0m check database
