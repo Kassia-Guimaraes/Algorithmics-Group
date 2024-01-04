@@ -62,7 +62,30 @@ def removeSongDataBase(tableMusic, playlists, id):
 
 def removeSongPlaylist(tableMusic, playlists, playListName):
     import auxiliarFunctions as af
-    print(getPlaylist(playlists, playListName))
+
+    #getPlaylist = playlist dataFrame 
+    used_playlist = getPlaylist(playlists, playListName)
+    id_songs_playlist = list(set(used_playlist['id_music'])) #list id songs present in playlist
+    #print(f"\nid_songs_playlist: {id_songs_playlist}")
+    duration_playlist = int((used_playlist['duration_playlist']).iloc[0])
+
+    average_rating = float((used_playlist['average_rating_musics']).iloc[0])
+    print(f"\naverage_rating: {average_rating}")
+
+    actual_playlist_df = pd.DataFrame()
+    for id_songs in id_songs_playlist: #take all songs and save in dataframe
+        title_per_id = (tableMusic[tableMusic['id_music']==id_songs]).iloc[0] #for print all songs titles 
+        title_music = title_per_id['title']
+        #print(f"\ntitle_music: {title_music}")
+        
+        actual_playlist = {"id_music": id_songs, 'title': title_music,"average_rating_musics": average_rating, "duration_playlist": duration_playlist} #dictionary with playlist informations 
+
+        line_actual_playlist = pd.DataFrame([actual_playlist])
+        actual_playlist_df = pd.concat([actual_playlist_df, line_actual_playlist], ignore_index=True)
+    
+    actual_playlist_df = actual_playlist_df.set_index('title')
+    print(actual_playlist_df.to_markdown())
+
     songId = ""
     while songId == "":
         try:
