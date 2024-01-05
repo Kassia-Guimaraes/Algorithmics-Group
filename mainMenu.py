@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 import addNewMusic
 import addStyle
@@ -16,6 +17,13 @@ import userRankPlaylist
 
 playlist_df = pd.read_csv('data/playlist.csv')
 tableMusic_df = pd.read_csv('data/tableMusic.csv')
+
+df_min_sec = tableMusic_df
+df_min_sec['duration'] = pd.to_timedelta(df_min_sec['duration']).astype(int)
+df_min_sec['columnAsMinutes'] = df_min_sec['duration'].floordiv(60)
+df_min_sec['columnAsMinutes'] = df_min_sec['columnAsMinutes'].astype(str)
+df_min_sec['columnAsMinutes'] = df_min_sec['columnAsMinutes']+":"+df_min_sec['duration'].mod(60).astype(str)
+df_min_sec.drop('duration', axis = 1, inplace = True)
 
 main_menu = """
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
