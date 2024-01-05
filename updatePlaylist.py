@@ -43,7 +43,9 @@ def playlistUpdate(): #update all playlists, excluding songs with user aviable <
                 removeIndex = playlist_df[playListMatch & idMatch].index
                 #removes from playlist_df dataframe the specified song of the specified playlist
                 playlist_df.drop(removeIndex, inplace = True)
-                print(f"\033[1m SUCCESS: \033[0;0mSong {songId} removed from playlist ", playlist_name)
+                title_per_id = (tableMusic_df[tableMusic_df['id_music']==songId]).iloc[0] #for print all songs titles 
+                title_music = title_per_id['title']
+                print(f"\033[1m SUCCESS: \033[0;0mSong {title_music} removed from playlist ", playlist_name)
                 try:
                     playlist_df.to_csv("data/playlist.csv", index = False)
                     print(getPlaylist(playlist_df, playlist_name))
