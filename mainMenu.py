@@ -14,11 +14,12 @@ import playlistRules
 import playlistAddMusic
 import visualization2
 import userRankPlaylist
+import songPlayback
 
 playlist_df = pd.read_csv('data/playlist.csv')
 tableMusic_df = pd.read_csv('data/tableMusic.csv')
 
-df_min_sec = tableMusic_df
+df_min_sec = pd.read_csv('data/tableMusic.csv')
 df_min_sec['duration'] = pd.to_timedelta(df_min_sec['duration']).astype(int)
 df_min_sec['columnAsMinutes'] = df_min_sec['duration'].floordiv(60)
 df_min_sec['columnAsMinutes'] = df_min_sec['columnAsMinutes'].astype(str)
@@ -164,17 +165,6 @@ def subMenu_2():
 def subMenu_2_1():
     playlistRules.playlistRulesFun()
     return
-    # second_input = -1
-    # while second_input != 0:
-    #     playlistRules.playlistRulesFun()
-    #     second_input = input(submenu_2_1)
-    #     match(second_input):
-    #         case("1"):
-    #             subMenu_2_1()
-    #         case("0"):
-    #             return
-    #         case(_):
-    #             subMenu_2_1()
 
 def subMenu_2_2():
     playlistManual.playlistManualFun()
@@ -221,10 +211,11 @@ def subMenu_3():
         second_input = input(submenu_3)
         match(second_input):
             case("1"):
-                print("NOT ADDED YET") # RANDOM PLAYBACK
+                print(tableMusic_df.sample())
+                songPlayback.playback(tableMusic_df.sample())
                 return
             case("2"):
-                print("NOT ADDED YET") # PICK PLAYLIST
+                songPlayback.songPlaybackMenu(tableMusic_df)
                 return
             case("3"):
                 prevalenceMusic.songRecurrence()

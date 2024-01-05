@@ -75,14 +75,14 @@ def createPlaylist(filtersList, loc_df, playlist_title):
         id_songs_playlist = list(set(selectedSongs_df['id_music']))
 
         for id_songs in id_songs_playlist: #loop for add all songs in csv file
-            add_music = {'id_playlist': playlist_title, 'duration_playlist': duration_playlist,'id_music': id_songs,'rating_playlist': rating_playlist,'average_rating_musics': average_rating}
+            add_music = {'id_playlist': playlist_title, 'duration_playlist': duration_playlist,'id_music': id_songs,'rating_playlist': rating_playlist,'average_rating_musics': average_rating, 'num_ratings': '1.0'}
             playlist_manual_df = pd.DataFrame([add_music]) #dictionary to dataFrame
             add_playlist_df = pd.concat([add_playlist_df,playlist_manual_df], ignore_index=True) #concat all songs in only dataframe
 
         new_playlist = pd.concat([playlist_df,add_playlist_df]) #concat the new playlist with rest of playlists
         new_playlist = new_playlist.set_index('id_playlist')
 
-        new_playlist.to_csv('jukebotify/data/playlist.csv') #add in csv file
+        new_playlist.to_csv('data/playlist.csv') #add in csv file
         return selectedSongs_df #return the playlist
     except:
         print("\033[1m WARNING: \033[0;0mempty playlist")

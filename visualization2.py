@@ -5,7 +5,7 @@ from pandas.core.array_algos.take import _view_wrapper
 
 def list_available_playlists():
     # Load the DataFrame from the playlist table
-    playlist_df = pd.read_csv('data/playlist.csv', names=['id_playlist', 'duration_playlist', 'id_music', 'rating_playlist', 'average_rating_musics', 'num_ratings'])
+    playlist_df = pd.read_csv('data/playlist.csv')
 
     # Display the list of available playlists
     available_playlists = playlist_df['id_playlist'].unique()
