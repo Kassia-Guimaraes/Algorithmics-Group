@@ -57,7 +57,7 @@ def createdPlaylists():
         print("\nSongs per style:")
         print(count_style)
 
-        # rating_playlist = float(input(" What grade do you give to the playlist (1-5)? ")) #user rating playlist
+        #rating_playlist = float(input(" What grade do you give to the playlist (1-5)? ")) #user rating playlist
 
         for id_songs in id_songs_playlist: #take all songs and save in dataframe
 
@@ -86,7 +86,7 @@ def playlistRulesFun():
             playlist = createdPlaylists_df[createdPlaylists_df["id_playlist"]==id_playlist]
             duration = createdPlaylists_df['duration_playlist'].tolist()
 
-            print(f"\n\nPlaylist name: {id_playlist}\tDuration: {duration[0]} seconds\n")
+            print(f"\n\nPlaylist name: {id_playlist}\n")
             print(playlist[['id_music', 'title', 'style', 'duration', 'duration_playlist']].to_markdown(index=False))
     except:
         print("\033[1m WARNING: \033[0;0mno playlist created")
