@@ -803,11 +803,9 @@ def songPlaybackMenu(table):
 
 # # define the countdown func.
 def playback(song):
-
     print("Now playing: ",list(song['title'])[0])
     # duration = int(song['duration'])
-    # for testing purposes we set 5 seconds
-    duration = 5
+    duration = 5  # for testing purposes we set 5 seconds
     while duration:
         mins, secs = divmod(duration, 60)
         timer = '{:02d}:{:02d}'.format(mins, secs)
@@ -876,6 +874,7 @@ def playlistUpdate(): #update all playlists, excluding songs with user aviable <
     return
 
 def autoPlaylistUpdate():
+    playlist_df = pd.read_csv("data/playlist.csv", sep=(','))
     playlist_prefix = 'play_auto_' #specif playlist name
     # Filter playlists by prefix name
     filtered_playlist_df = playlist_df[playlist_df['id_playlist'].str.startswith(playlist_prefix)]
