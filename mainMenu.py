@@ -148,8 +148,8 @@ def subMenu_1():                            # MANAGE YOUR LIBRARY
                 #print(tableMusic_df.to_markdown(index=False))
                 #print(Fore.BLUE + Style.BRIGHT + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"+ Style.RESET_ALL)
 
-                selected_columns = ['id_music', 'style', 'type', 'title', 'year', 'artist' , 'rating_global' , 'duration']
-                filtered_table = tableMusic_df[selected_columns]
+                selected_columns = ['id_music', 'style', 'type', 'title', 'year', 'artist' , 'rating_global' , 'columnAsMinutes']
+                filtered_table = df_min_sec[selected_columns]
 
                 print(Fore.BLUE + Style.BRIGHT + "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++   Y O U R    L I B R A R Y   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++:" + Style.RESET_ALL)
                 print(filtered_table.to_markdown(index=False))
