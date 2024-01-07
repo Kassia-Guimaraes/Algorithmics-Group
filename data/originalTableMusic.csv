@@ -1,4 +1,4 @@
-id_music,style,type,title,songwritter,year,artist,rating_global,rating_user,duration
+id_music,style,type,title,songwriter,year,artist,rating_global,rating_user,duration
 1,Rock,Band,Numb,Linkin Park,2003,Linkin Park,4,,188
 2,Rock,Band,How You Remind Me,Chad Kroeger,2001,Nickelback,5,,228
 3,Rock,Band,Californication,"Anthony Kiedis, Chad Smith, Flea E John Frusciante",1999,Red Hot Chili Peppers,5,,322
