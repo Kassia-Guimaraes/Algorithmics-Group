@@ -1,11 +1,9 @@
 import pandas as pd
 import numpy as np
-from addStyle import *
 import os.path
 from colorama import Fore, Style
 import random #Random numbers
 from collections import OrderedDict
-from dataBase import get_new_id #generate id f
 import time
 import math
 from pandas.core.array_algos.take import _view_wrapper
@@ -888,8 +886,6 @@ def autoPlaylistUpdate():
 
             per_playlist_df = getPlaylist(filtered_playlist_df, playlist_name)
             id_songs_per_playlist = per_playlist_df['id_music'].tolist() #verify id songs list in specify playlist
-            print(f"id_songs_per_playlist {playlist_name}: {id_songs_per_playlist}")
-
             for songId in id_songs_to_remove: #get id's to remove
                 if int(songId) in map(int, id_songs_per_playlist):
                     songRating = tableMusic_df['rating_global'][(songId == tableMusic_df["id_music"])].item() #calculate the new average song rating and put with one decimal place.
@@ -917,7 +913,7 @@ def autoPlaylistUpdate():
                 else:
                     continue
     else: # playlist not found
-        print(messages[playlist_not_found])
+        print(" No playlists updates.")
 
     return
 
