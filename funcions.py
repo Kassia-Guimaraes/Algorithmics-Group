@@ -802,6 +802,7 @@ def songPlaybackMenu(table):
     playback(table.loc[table['title'].str.lower() == song_input])
 
 # # define the countdown func.
+# based off example found at https://www.programiz.com/python-programming/examples/countdown-timer
 def playback(song):
     print("Now playing: ",list(song['title'])[0])
     # duration = int(song['duration'])
