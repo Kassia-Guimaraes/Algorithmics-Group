@@ -208,6 +208,7 @@ def subMenu_2_2():                      # Create personalized playlist
                 continue
 
 def subMenu_2_3():                      # Edit playlist
+    playlist_df = pd.read_csv('data/playlist.csv')
     second_input = 5
     playlist_pick = f.pickPlaylist(playlist_df)
     while second_input != 0:
@@ -234,6 +235,7 @@ def subMenu_2_3():                      # Edit playlist
 def subMenu_3():                    # QUICK PLAY
     second_input = -1
     while second_input != 0:
+        tableMusic_df = pd.read_csv('data/tableMusic.csv')
         second_input = input(submenu_3)
         match(second_input):
             case("1"):

@@ -79,7 +79,7 @@ def addMusicDatabase():
     print(Fore.BLUE + Style.BRIGHT + "💙 SUCCESS: Song added to Your Library 💙" + Style.RESET_ALL)
 
 
-    newMusic.to_csv('data/tableMusic.csv', index=False)  # Uncomment to save the updated DataFrame
+    newMusic.to_csv('data/tableMusic.csv', index=False)
     tableMusic_df = pd.read_csv('data/tableMusic.csv')
     return tableMusic_df  # Updated DataFrame
 
@@ -794,6 +794,9 @@ def songPlaybackMenu(table):
         print(" ", title)
 
     song_input = input(" What song do you want to play => ").lower()
+    while song_input not in list(table['title'].str.lower()):
+        print("\033[1m ⚠️ WARNING: \033[0;0mInvalid input.")
+        song_input = input(" What song do you want to play => ").lower()
     playback(table.loc[table['title'].str.lower() == song_input])
 
 # # define the countdown func.
@@ -911,7 +914,7 @@ def autoPlaylistUpdate():
                 else:
                     continue
     else: # playlist not found
-        print(" No playlists updates.")
+        print(" No playlists updated.")
 
     return
 
