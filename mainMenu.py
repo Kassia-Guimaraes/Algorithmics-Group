@@ -1,5 +1,5 @@
 import pandas as pd
-import funcions as f
+import functions as f
 
 playlist_df = pd.read_csv('data/playlist.csv')
 tableMusic_df = pd.read_csv('data/tableMusic.csv')
