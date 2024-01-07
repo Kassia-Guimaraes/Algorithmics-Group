@@ -1,12 +1,9 @@
 import pandas as pd
-import numpy as np
 import os.path
 from colorama import Fore, Style
-import random #Random numbers
 from collections import OrderedDict
 import time
 import math
-from pandas.core.array_algos.take import _view_wrapper
 
 tableMusic_df = pd.read_csv("data/tableMusic.csv", sep=(","))
 playlists_df = pd.read_csv("data/playlist.csv", sep=(','))
@@ -444,7 +441,7 @@ def createPlaylist(filtersList, loc_df, playlist_title):
     playlist_df = pd.read_csv('data/playlist.csv')
     tableMusic_df = pd.read_csv("data/tableMusic.csv", sep=',')
     selectedSongs_df = pd.DataFrame()
-    filtered_songs_df = applyFilters(filtersList, loc_df) #menu with filters
+    applyFilters(filtersList, loc_df) #menu with filters
 
     add_playlist_df = pd.DataFrame()
 
@@ -457,7 +454,8 @@ def createPlaylist(filtersList, loc_df, playlist_title):
             elif selected_song_id == "": #add new filters
 
                 new_filters_list = getUsersFilters(tableMusic_df)
-                new_filtered_songs_df = applyFilters(new_filters_list, loc_df)
+                applyFilters(new_filters_list, loc_df)
+                # new_filtered_songs_df = applyFilters(new_filters_list, loc_df)
                 continue
 
             else:
@@ -590,7 +588,6 @@ def playlistRulesFun():
         print("\nAll Created Playlists:")
         for id_playlist in list_ids_playlist:
             playlist = createdPlaylists_df[createdPlaylists_df["id_playlist"]==id_playlist]
-            duration = createdPlaylists_df['duration_playlist'].tolist()
 
             print(f"\n\nPlaylist name: {id_playlist}\n")
             print(playlist[['id_music', 'title', 'style', 'duration', 'duration_playlist']].to_markdown(index=False))
