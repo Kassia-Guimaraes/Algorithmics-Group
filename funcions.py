@@ -548,6 +548,7 @@ def createdPlaylists():
         # Add the 'duration_playlist' column to the DataFrame
         duration_playlist = play_auto['duration'].sum()
         play_auto['duration_playlist'] = duration_playlist
+        duration_min_sec = str(math.floor(duration_playlist/60)) + ":" + str(duration_playlist % 60)
 
         average_rating = "{:.1f}".format(play_auto['rating_global'].mean()) #averange rating songs in playlist
         id_songs_playlist = list(set(play_auto['id_music'])) #list id songs present in playlist
@@ -555,10 +556,10 @@ def createdPlaylists():
         print("                                                                          ")
         print(Fore.BLUE + Style.BRIGHT + "💙    YOUR NEW PLAYLIST    💙" + Style.RESET_ALL)
         print("                                                                          ")
-        print(f">>>>>  Playlist '{name_playlist}' created successfully! >>>> Duration: {duration_playlist}")
+        print(f">>>>>  Playlist '{name_playlist}' created successfully! >>>> Duration: {duration_min_sec}")
         print("                                                                          ")
         print(play_auto[['id_music','title', 'rating_global', 'style', 'year']].to_markdown(index=False))
-        print(f"\nDuration: {duration_playlist} seconds\nAverage Rating: {average_rating}")
+        print(f"\nDuration: {duration_min_sec}\nAverage Rating: {average_rating}")
         print("\nSongs per style:")
         print(count_style)
 
