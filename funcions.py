@@ -682,7 +682,9 @@ def removeSongDataBase(tableMusic, playlists, id):
     #the condition sees if the index is in the dataframe tableMusic
     while id not in tableMusic["id_music"].values:
         print("\033[1m ⚠️ WARNING: \033[0;0mThis song is not in our system.")
-        id = int(input(" Please chose a valid option (0 to abort) => "))
+        id = int(input(" Please choose a valid option (0 to abort) => "))
+        if id == 0:
+            break
     playlistsToUpdate = playlists["id_playlist"][playlists["id_music"]==id]
 
     for playListName in playlistsToUpdate:
