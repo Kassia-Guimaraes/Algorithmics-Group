@@ -804,7 +804,8 @@ def songPlaybackMenu(table):
 # # define the countdown func.
 # based off example found at https://www.programiz.com/python-programming/examples/countdown-timer
 def playback(song):
-    print("Now playing: ",list(song['title'])[0])
+    the_song = list(song['title'])[0]
+    print("Now playing: ",the_song)
     # duration = int(song['duration'])
     duration = 5  # for testing purposes we set 5 seconds
     while duration:
@@ -813,7 +814,7 @@ def playback(song):
         print(timer, end="\r")
         time.sleep(1)
         duration -= 1
-    song_rating(list(song['title'])[0])
+    song_rating(the_song)
     autoPlaylistUpdate()
 
 
