@@ -239,7 +239,6 @@ def subMenu_3():                    # QUICK PLAY
         second_input = input(submenu_3)
         match(second_input):
             case("1"):
-                print(tableMusic_df.sample())
                 f.playback(tableMusic_df.sample())
                 return
             case("2"):
